@@ -19,8 +19,11 @@ use App\Http\Controllers\ChairController;
 Route::get('/', function () {
     return view('landing');
 });
-
-
+Route::get('/index', [BedController::class, 'index']);
+Route::post('/addtocart', [BedController::class, 'addtocart']);
+Route::get('/add', [BedController::class, 'try']);
+Route::get('/add', [BedController::class, 'try']);
+Route::get('/get', [BedController::class, 'get']);
 // getting chair and updaing etc
 Route::get('/getchairs', [ChairController::class, 'index']);
 
