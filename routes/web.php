@@ -19,6 +19,8 @@ use App\Http\Controllers\ChairController;
 Route::get('/', function () {
     return view('landing');
 });
+
+Route::get('/carttotal', [BedController::class, 'CartTotal']);
 Route::post('/updateCartitem', [BedController::class, 'update']);
 Route::get('/deleteCartItem/{id}', [BedController::class, 'deleteCartItem']);
 Route::get('/delete', [BedController::class, 'destroy']);

@@ -11,12 +11,10 @@
                     @if (session('cartItemUpdated'))
                     <div class="alert alert-success" role="alert">
                        <p>cart item updated</p>
-                    </div>
-                        
-                    @endif
-                    
+                    </div>                       
+                    @endif                    
                     <div class="cart-table clearfix">
-                        <table class="table table-responsive">
+                        <table class="table table-responsive table-striped table-bordered">
                             <thead>
                                 <tr>
                                     <th>S.No</th>
@@ -28,11 +26,8 @@
                                     <th >Action</th>
                                 </tr>
                             </thead>
-                            <tbody> 
-                               
-                           @foreach ($items ?? '' ?? '' as $item)  
-                          
-                         @php $i++; @endphp
+                            <tbody>                               
+                           @foreach ($items ?? '' ?? '' as $item)                            
                                    
                                    <td>{{ $loop->index+1 }}</td>
                                    <td><img class="tiny" src="{{$item->options->image}}" alt="" srcset=""></td>
@@ -54,12 +49,15 @@
                                     </form>                                       
                                     </td>
                                     <td colspan="2">
-                                     <a href="{{url('deleteCartItem/')}}/{{$item->rowId}}" class="btn btn-danger">Remove</td>
-                                  
+                                     <a href="{{url('deleteCartItem/')}}/{{$item->rowId}}" class="btn btn-danger">Remove</td>                                
                                </tr>
-                                @endforeach
-                            
+                                @endforeach                               
                             </tbody>
+                            <tfoot>
+                                <tr ><td colspan="3"></td><td colspan="2"> Subtotal {{ $subtotal}}</td><tr>
+                                    <tr><td colspan="3"></td><td colspan="2">tax {{$tax}}</td></tr>
+                                    <td colspan="2"><td><h4>Total  &nbsp; =</h4></td><td>{{ $total }}</td></tr>                                   
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -73,9 +71,5 @@
         width: 70px;
         height: 70px;
     }
-</style>
-<script>
-    
-</script>
-    
+</style>    
 @endsection

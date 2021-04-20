@@ -28,23 +28,19 @@ class BedController extends Controller
 
     public function get(){
         $pr=\Cart::content();
-
-       $i =0;
-        return view('Cart', ['items'=>$pr, 'i'=>$i]);
+       $subtotal= Cart::subtotal();
+        $tax =Cart::tax();
+        $total= Cart::total();
+        return view('Cart', ['items'=>$pr, 'total'=>$total, 'tax'=> $tax, 'subtotal'=>$subtotal]);
     }
 
     public function destroy() {
         Cart::destroy();
 
     }
-    
-
-    public function deleteCartItem($rowId){
-
-       
+    public function deleteCartItem($rowId){       
         Cart::remove($rowId);
-        return redirect()->route('get');
-    //    
+        return redirect()->route('get');  
     }
 
     public function update(Request $request){
