@@ -10,9 +10,11 @@
                     @include('partial.Sidebar')
                 </div>
                 <div class="col-md-3">
-                   
-                </div>
-                
+                    @if (session('cartItem'))
+                    <p>fddfd</p>
+                        
+                    @endif
+                </div>                
                 @foreach ($beds ?? '' as $bed)
                     <div class="col-md-4">
                         <img src="{{ $bed->image }}">

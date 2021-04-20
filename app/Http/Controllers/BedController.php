@@ -19,8 +19,11 @@ class BedController extends Controller
 
     public function addtocart(Request $request) {
         $bed = Bed::find($request->id);
+        $i =0;
         $productOnCart=\Cart::add($bed->id, $bed->name, $bed->quantity, $bed->price, ['image'=>$bed->image]);
-        return view('Cart', ['items'=> $productOnCart]);
+
+        return back()->with('cartItem','cart item added to cart successfuly');
+        
     }
 
     public function get(){
@@ -33,5 +36,20 @@ class BedController extends Controller
     public function destroy() {
         Cart::destroy();
 
+    }
+    
+
+    public function deleteCartItem($rowId){
+
+       
+        Cart::remove($rowId);
+        return redirect()->route('get');
+    //    
+    }
+
+    public function update(Request $request){
+        Cart::update($request->rowId, $request->quantity);
+        return back()->with('cartItemUpdated','cart item updated');
+        
     }
 }
