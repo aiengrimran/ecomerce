@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 use Cart;
+use Stripe\Stripe;
 use App\Models\Bed;
 use Illuminate\Http\Request;
+use Laravel\Cashier\Cashier;
 
 class BedController extends Controller
 {
@@ -48,4 +50,5 @@ class BedController extends Controller
         return back()->with('cartItemUpdated','cart item updated');
         
     }
+    
 }
