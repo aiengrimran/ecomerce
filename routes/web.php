@@ -7,7 +7,6 @@ use App\Http\Controllers\BedController;
 use App\Http\Controllers\ChairController;
 use App\Http\Controllers\MyPaymentController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +20,7 @@ use App\Http\Controllers\MyPaymentController;
 Route::get('/', function () {
     return view('landing');
 });
-Route::view('getpay', 'try');
+
 Route::post('/pay', [MyPaymentController::class,'paymentprocess']);
 Route::get('/stripe', [BedController::class, 'tryStripe']);
 Route::get('/carttotal', [BedController::class, 'CartTotal']);
@@ -36,9 +35,6 @@ Route::get('/get', [BedController::class, 'get'])->name('get');
 // getting chair and updaing etc
 Route::get('/getchairs', [ChairController::class, 'index']);
 
-Route::post('payment', function(){
-     return 'payment succsessful';
-});
 
 // Route::get('/delete', [ChairController::class, 'removealldata']);
 // Route::get('/delete', [BedController::class, 'removealldata']);
@@ -48,7 +44,7 @@ Route::view('checkout', 'Checkout');
 Route::view('try', 'try');
 
 Route::get('/shop', function () {
-    return view('shop');
+    return view('Checkout');
 });
 
 
@@ -61,5 +57,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('stripe', 'MyPaymentController@stripe');
 
-Route::view('checkout', 'Checkout');
-Route::post('/stripe', [MyPaymentController::class,'stripePost'])->name('stripe.post');;
+Route::view('checkout',[BedController::class, 'get']);
+Route::post('/stripe', [MyPaymentController::class,'stripePost'])->name('stripe.post');
+Route::view('admin', 'dashboard.index');

@@ -1,5 +1,7 @@
 @extends('layouts.appShop')
-@section('fav')
+
+
+@section('fooTer')
 <div class="container">
   <div class="cart-table-area section-padding-100">
         <div class="container-fluid">

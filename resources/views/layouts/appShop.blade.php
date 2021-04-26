@@ -21,39 +21,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <style type="text/css">
-
-        .panel-title {
-
-        display: inline;
-
-        font-weight: bold;
-
-        }
-
-        .display-table {
-
-            display: table;
-
-        }
-
-        .display-tr {
-
-            display: table-row;
-
-        }
-
-        .display-td {
-
-            display: table-cell;
-
-            vertical-align: middle;
-
-            width: 61%;
-
-        }
-
-    </style>
+    
 
     @yield('customCss')
 </head>

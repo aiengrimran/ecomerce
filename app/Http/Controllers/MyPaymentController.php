@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Cart;
 
 use Stripe\Charge;
 use Stripe\Stripe;
@@ -14,15 +15,17 @@ class MyPaymentController extends Controller
     public function stripePost(Request $request)
 
     {
+        $amount = intval(Cart::subtotal());
          
 
         Stripe::setApiKey(env('STRIPE_SECRET'));
 
         Charge::create ([
 
-                "amount" => 100 * 100,
+                "amount" => 100 * $amount,
 
                 "currency" => "usd",
+                
 
                 "source" => $request->stripeToken,
 
@@ -35,15 +38,14 @@ class MyPaymentController extends Controller
         //     'itemName'=> 'product 1',
         //     'price'=>400
         // ]);
-
-
-  
-
         // \Session::flash('success', 'Payment successful!');
+    return 'payment succssesfull';
 
-          
+    }
+    public function int()
+    {
+        $amount= '102,212,212. 0';
 
-        return 'payment succssesfull';
-
+        str_replace(',', '', $amount);
     }
 }

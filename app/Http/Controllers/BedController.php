@@ -29,10 +29,12 @@ class BedController extends Controller
     }
 
     public function get(){
-        $pr=\Cart::content();
-       $subtotal= Cart::subtotal();
-        $tax =Cart::tax();
-        $total= Cart::total();
+        $pr=Cart::content();
+        
+       $subtotal= str_replace(',', '', Cart::subtotal());
+        $tax = str_replace(',', '', Cart::tax());
+        $total= str_replace(',', '',Cart::total());
+        session()->flash('totalamount', $total);
         return view('Cart', ['items'=>$pr, 'total'=>$total, 'tax'=> $tax, 'subtotal'=>$subtotal]);
     }
 
