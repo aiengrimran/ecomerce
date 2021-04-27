@@ -1,10 +1,9 @@
 <?php
 
-use App\Models\Bed;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BedController;
+
 use App\Http\Controllers\ChairController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\MyPaymentController;
 
 /*
@@ -17,6 +16,10 @@ use App\Http\Controllers\MyPaymentController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+require('bedsRoute.php');
+require('admin.php');
+
+
 Route::get('/', function () {
     return view('landing');
 });
@@ -40,9 +43,6 @@ Route::get('/getchairs', [ChairController::class, 'index']);
 // Route::get('/delete', [BedController::class, 'removealldata']);
 // CRUD BEDS Routes
 
-Route::view('checkout', 'Checkout');
-Route::view('try', 'try');
-
 Route::get('/shop', function () {
     return view('Checkout');
 });
@@ -59,4 +59,4 @@ Route::get('stripe', 'MyPaymentController@stripe');
 
 Route::view('checkout',[BedController::class, 'get']);
 Route::post('/stripe', [MyPaymentController::class,'stripePost'])->name('stripe.post');
-Route::view('admin', 'dashboard.index');
+
