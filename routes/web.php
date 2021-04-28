@@ -60,6 +60,12 @@ Route::get('stripe', 'MyPaymentController@stripe');
 Route::view('checkout',[BedController::class, 'get']);
 Route::post('/stripe', [MyPaymentController::class,'stripePost'])->name('stripe.post');
 
-Route::post('/checkscrf', function(){
-    return"dsd";
+	
+
+Route::get('search', function() {
+    $query = ''; // <-- Change the query for testing.
+
+    $articles = Bed::search($query)->get();
+
+    return $articles;
 });
