@@ -60,3 +60,6 @@ Route::get('stripe', 'MyPaymentController@stripe');
 Route::view('checkout',[BedController::class, 'get']);
 Route::post('/stripe', [MyPaymentController::class,'stripePost'])->name('stripe.post');
 
+Route::post('/checkscrf', function(){
+    return"dsd";
+});

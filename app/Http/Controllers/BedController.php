@@ -12,6 +12,7 @@ class BedController extends Controller
         return view('Beds', ['beds'=>$beds]);
     }
     public function createBedProduct(Request $request){
+        $image = $request->image;
        Bed::create([
            'name'=>$request->name,
            'price'=>$request->price,
