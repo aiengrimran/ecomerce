@@ -1,5 +1,6 @@
 <?php
 
+use Algolia\AlgoliaSearch\Algolia;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductsController;
 Route::get('admin/allproducts', [AdminController::class, 'allproducts'])->name('allProducts');

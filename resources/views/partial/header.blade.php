@@ -11,9 +11,9 @@
     <nav class="amado-nav">
         <ul>
             <li class="active"><a href="{{url('/')}}">Home</a></li>
-            <li><a href="{{url('/shop')}}">Shop</a></li>
+            <li><a href="{{url('/shopView')}}">Shop</a></li>
             <li><a href="{{url('/products')}}">Product</a></li>
-            <li><a href="{{url('/get')}}">Cart</a></li>
+            <li><a href="{{url('/getCartItems')}}">Cart</a></li>
             <li><a href="{{url('/checkout')}}">Checkout</a></li>
         </ul>
     </nav>

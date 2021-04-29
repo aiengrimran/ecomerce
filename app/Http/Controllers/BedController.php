@@ -9,7 +9,7 @@ class BedController extends Controller
 {
     public function index() {
         $beds = Bed::get();
-        return view('Beds', ['beds'=>$beds]);
+        return view('showProducts.Beds', ['beds'=>$beds]);
     }
     public function createBedProduct(Request $request){
         $image = $request->image;
@@ -40,10 +40,7 @@ class BedController extends Controller
         ]);
         return redirect('admin/dashboard');
 
-    }
-   
-
-   
+    }  
     public function removealldata(){
         Bed::truncate();
     }

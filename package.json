@@ -23,5 +23,9 @@
         "vue": "^2.5.17",
         "vue-loader": "^15.9.6",
         "vue-template-compiler": "^2.6.10"
+    },
+    "dependencies": {
+        "algoliasearch": "^4.9.1",
+        "vue-instantsearch": "^3.7.0"
     }
 }

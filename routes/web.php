@@ -1,7 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Models\Bed;
 
+use App\Models\Chair;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ChairController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\MyPaymentController;
@@ -18,20 +21,21 @@ use App\Http\Controllers\MyPaymentController;
 */
 require('bedsRoute.php');
 require('admin.php');
-
+require('cart.php');
 
 Route::get('/', function () {
     return view('landing');
 });
 
+
 Route::post('/pay', [MyPaymentController::class,'paymentprocess']);
 Route::get('/stripe', [BedController::class, 'tryStripe']);
 Route::get('/carttotal', [BedController::class, 'CartTotal']);
-Route::post('/updateCartitem', [BedController::class, 'update']);
-Route::get('/deleteCartItem/{id}', [BedController::class, 'deleteCartItem']);
+
+
 Route::get('/delete', [BedController::class, 'destroy']);
-Route::get('/getbeds', [BedController::class, 'index'])->name('getbeds');
-Route::post('/addtocart', [BedController::class, 'addtocart']);
+
+
 Route::get('/add', [BedController::class, 'try']);
 Route::get('/add', [BedController::class, 'try']);
 Route::get('/get', [BedController::class, 'get'])->name('get');
@@ -61,11 +65,9 @@ Route::view('checkout',[BedController::class, 'get']);
 Route::post('/stripe', [MyPaymentController::class,'stripePost'])->name('stripe.post');
 
 	
-
-Route::get('search', function() {
-    $query = ''; // <-- Change the query for testing.
-
-    $articles = Bed::search($query)->get();
-
-    return $articles;
+Route::get('searchScout', function(){
+   return Bed::search('Cremin')->raw();
 });
+Route::view('checkClient', 'adminSection.orders');
+
+Route::view('/shopView', 'showProducts.shop');

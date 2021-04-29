@@ -8,6 +8,12 @@
 require('./bootstrap');
 
 window.Vue = require('vue').default;
+import algoliasearch from 'algoliasearch/lite';
+window.algoliasearch = algoliasearch;
+
+import InstantSearch from 'vue-instantsearch';
+Vue.use(InstantSearch);
+
 
 /**
  * The following block of code may be used to automatically register your
