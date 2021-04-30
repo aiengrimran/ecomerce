@@ -34,6 +34,7 @@
      <!-- ##### Footer Area End ##### -->
     {{-- <script src="{{asset('js/app.js')}}"></script>
     <script src="{{asset('js/plugin.js')}}"></script> --}}
+    <script src="{{asset('js/app.js')}}"></script>
     <script src="js/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
