@@ -16,10 +16,10 @@
 
     <!-- Core Style CSS -->
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
-    <link rel="stylesheet" href="{{asset('css/core-style.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    {{-- <link rel="stylesheet" href="{{asset('css/core-style.css')}}"> --}}
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" /> --}}
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> --}}
 
     
 
@@ -34,7 +34,7 @@
      <!-- ##### Footer Area End ##### -->
     {{-- <script src="{{asset('js/app.js')}}"></script>
     <script src="{{asset('js/plugin.js')}}"></script> --}}
-    <script src="{{asset('js/app.js')}}"></script>
+    {{-- <script src="{{asset('js/app.js')}}"></script>
     <script src="js/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
@@ -45,9 +45,9 @@
     <!-- Bootstrap js -->
     {{-- <script src="js/bootstrap.min.js"></script> --}}
     <!-- Plugins js -->
-    <script src="js/plugins.js"></script>
+    {{-- <script src="js/plugins.js"></script>
     <!-- Active js -->
-    <script src="js/active.js"></script>
+    <script src="js/active.js"></script> --}} --}}
     @yield('customjs')
 </body>
 </html>

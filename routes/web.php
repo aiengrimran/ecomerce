@@ -69,5 +69,5 @@ Route::get('searchScout', function(){
    return Bed::search('Cremin')->raw();
 });
 Route::view('checkClient', 'adminSection.orders');
-
+Route::view('vue', 'vue');
 Route::view('/shopView', 'showProducts.shop');
