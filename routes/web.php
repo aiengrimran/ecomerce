@@ -66,8 +66,9 @@ Route::post('/stripe', [MyPaymentController::class,'stripePost'])->name('stripe.
 
 	
 Route::get('searchScout', function(){
-   return Bed::search('Cremin')->raw();
+   return Bed::search('Cremin')->get();
 });
 Route::view('checkClient', 'adminSection.orders');
 
 Route::view('/shopView', 'showProducts.shop');
+Route::view('vue', 'vue');

@@ -1,8 +1,8 @@
 @extends('layouts.appShop')
 @section('section')
 <div id="app">
-  <example-component></example-component>
+    <try></try>
 
 </div>
-  
+    
 @endsection
