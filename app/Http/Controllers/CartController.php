@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 use Cart;
-use Illuminate\Http\Request;
 use App\Models\Bed;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+
 class CartController extends Controller
 {
     public function addtocart(Request $request) {
@@ -18,8 +20,8 @@ class CartController extends Controller
             $subtotal= str_replace(',', '', Cart::subtotal());
             $tax = str_replace(',', '', Cart::tax());
             $total= str_replace(',', '',Cart::total());
-            session()->flash('totalamount', $total);
-            return view('Cart', ['items'=>$allProducts, 'total'=>$total, 'tax'=> $tax, 'subtotal'=>$subtotal]);
+            session(['totalamount'=>$total,'productsTotalNumber'=>$productsTotalNumber]);
+            return view('Cart', ['items'=>$allProducts, 'total'=>$total, 'tax'=> $tax, 'subtotal'=>$subtotal, 'productsTotalNumber'=>$productsTotalNumber]);
        }
       session()->flash('NototalItmes', 'No items Inside Cart');
       return view('Cart',['message'=>'dsds']);
@@ -39,5 +41,11 @@ class CartController extends Controller
         Cart::update($request->rowId, $request->quantity);
         return back()->with('cartItemUpdated','cart item updated');
         
+    }
+    public function get(){
+        
+        Session::flash('name', 'imran');
+        // $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        return "dds";
     }
 }

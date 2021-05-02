@@ -11,7 +11,7 @@ class ChairController extends Controller
         $chairs = Chair::get();
         session(['chairsget'=>true]);
         
-        return view ('Chairs', ['chairs' => $chairs]);
+        return view ('showProducts.Chairs', ['chairs' => $chairs]);
     }
     //
     public function removealldata(){

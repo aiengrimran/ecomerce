@@ -40,7 +40,7 @@ Route::get('/add', [BedController::class, 'try']);
 Route::get('/add', [BedController::class, 'try']);
 Route::get('/get', [BedController::class, 'get'])->name('get');
 // getting chair and updaing etc
-Route::get('/getchairs', [ChairController::class, 'index']);
+Route::get('/getChairsProduct', [ChairController::class, 'index']);
 
 
 // Route::get('/delete', [ChairController::class, 'removealldata']);
@@ -68,7 +68,7 @@ Route::post('/stripe', [MyPaymentController::class,'stripePost'])->name('stripe.
 Route::get('searchScout', function(){
    return Bed::search('Cremin')->get();
 });
-Route::view('/vue', 'vue');
+
 Route::view('checkClient', 'adminSection.orders');
 
 Route::view('/shopView', 'showProducts.shop');

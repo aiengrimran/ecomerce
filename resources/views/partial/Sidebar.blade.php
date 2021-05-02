@@ -8,8 +8,8 @@
         <!--  Catagories  -->
         <div class="catagories-menu">
             <ul>
-                <li class="active"><a href="{{url('/getchairs')}}">Chairs</a></li>
-                <li><a href="{{url('/getbeds')}}">Beds</a></li>
+                <li class="active"><a href="{{url('/getChairsProduct')}}">Chairs</a></li>
+                <li><a href="{{url('/getBedsProducts')}}">Beds</a></li>
                 <li><a href="#">Accesories</a></li>
                 <li><a href="#">Tables</a></li>
             </ul>
