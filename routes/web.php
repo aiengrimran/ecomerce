@@ -5,7 +5,9 @@ use App\Models\Bed;
 use App\Models\Chair;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\ChairController;
+use App\Http\Controllers\SocailController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\MyPaymentController;
 
@@ -23,9 +25,9 @@ require('bedsRoute.php');
 require('admin.php');
 require('cart.php');
 
-Route::get('/', function () {
-    return view('landing');
-});
+// Route::get('/', function () {
+//     return view('landing');
+// });
 
 
 Route::post('/pay', [MyPaymentController::class,'paymentprocess']);
@@ -73,3 +75,15 @@ Route::view('checkClient', 'adminSection.orders');
 
 Route::view('/shopView', 'showProducts.shop');
 Route::view('vue', 'vue');
+
+// Route::get('/google', function () {
+//     return Socialite::driver('facebook')->redirect();
+// });
+Route::get('/auth/facebook', [SocailController::class, 'redirect']);
+Route::get('/login/facebook', [SocailController::class, 'callback']);
+// Route::get('/auth/callback', function () {
+//     return Socialite::driver('facebook')->stateless()->user();
+//     // http://localhost:8000/login/oauth
+//     // http://localhost:8000/login/facebook
+//     // return $user->token;
+// });

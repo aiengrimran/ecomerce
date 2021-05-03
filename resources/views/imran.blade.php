@@ -257,7 +257,7 @@
                                 <!-- Product Meta Data -->
                                 <div class="product-meta-data">
                                     <div class="line"></div>
-                                    <p class="product-price">${{$bed->price}}</p>
+                                    <p class="product-price">$s{{$bed->price}}</p>
                                     <a href="product-details.html">
                                         <h6>Modern Chair</h6>
                                     </a>
@@ -306,6 +306,6 @@
     <script src="{{asset('js/active.js')}}"></script>
     <script src="{{asset('js/jquery/jquery-2.2.4.min.js')}}"></script>
 
-    
+    {{--project id ecomerce-312523 --}}
 </body>
 </html>
