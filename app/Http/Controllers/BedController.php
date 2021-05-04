@@ -9,7 +9,7 @@ class BedController extends Controller
 {
     public function index() {
         $beds = Bed::get();
-        return view('imran', ['beds'=>$beds]);
+        return view('showProducts.Bed', ['beds'=>$beds]);
     }
     public function createBedProduct(Request $request){
         $image = $request->image;

@@ -8,10 +8,10 @@
         <!--  Catagories  -->
         <div class="catagories-menu">
             <ul>
-                <li class="active"><a href="{{url('/getChairsProduct')}}">Chairs</a></li>
-                <li><a href="{{url('/getBedsProducts')}}">Beds</a></li>
-                <li><a href="#">Accesories</a></li>
-                <li><a href="#">Tables</a></li>
+                <li class="active"><a href="{{url('/getChairsProducts')}}">Chairs</a></li>
+                <li><a href="{{url('getBedsProducts')}}">Beds</a></li>
+                <li><a href="{{url('/')}}">Accesories</a></li>
+                <li><a href="{{url('/')}}">Furniture</a></li>
             </ul>
         </div>
     </div>
@@ -33,17 +33,22 @@
                 <label class="form-check-label" for="ikea">Ikea</label>
             </div>
             <!-- Single Form Check -->
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="furniture">
-                <label class="form-check-label" for="furniture">Furniture Inc</label>
-            </div>
             
         </div>
     </div>
 
     <!-- ##### Single Widget ##### -->
-    {{-- widget code should be included here --}}
+    <div class="widget color mb-50">
+        <!-- Widget Title -->
+        <h6 class="widget-title mb-30">Color</h6>
 
-    <!-- ##### Single Widget ##### -->
-   {{-- price filter should be included here --}}
+        <div class="widget-desc">
+            <ul class="d-flex">
+                <li><a href="#" class="color2"></a></li>
+                <li><a href="#" class="color3"></a></li>
+                <li><a href="#" class="color4"></a></li>
+                <li><a href="#" class="color5"></a></li>
+            </ul>
+        </div>
+    </div>
 </div>

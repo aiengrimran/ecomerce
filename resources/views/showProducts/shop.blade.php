@@ -1,4 +1,9 @@
 @extends('layouts.appShop')
+@section('customCss')
+
+<link rel="stylesheet" href="{{asset('css/core-style.css')}}">    
+<link rel="stylesheet" href="{{asset('css/style.css')}}">
+@section('section')
 @section('navBar')
 
 
@@ -22,7 +27,7 @@
         @include('partial.header')
         <!-- Header Area End -->
 
-       @include('partial.Sidebar')
+       @include('partial.sidebar2')
 
         <div class="amado_product_area section-padding-100">
             <div class="container-fluid">
@@ -49,9 +54,7 @@
     </div>
     <!-- ##### Main Content Wrapper End ##### -->
 
-    <!-- ##### Newsletter Area Start ##### -->
-   @include('partial.newslatter')
-    <!-- ##### Newsletter Area End ##### -->
+
 
     <!-- ##### Footer Area Start ##### -->
     @include('partial.footer')

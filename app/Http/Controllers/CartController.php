@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
-    public function addtocart(Request $request) {
-        $bed = Bed::find($request->id);
+    public function addToCart($id) {
+        $bed = Bed::find($id);
         $productOnCart=Cart::add($bed->id, $bed->name, $bed->quantity, $bed->price, ['image'=>$bed->image]);
-        return back()->with('cartItem','cart item added to cart successfuly');
+        session()->flash('itemAddedToCart', true);
+        return back()->with('cartItem',1);
     }
     public function getCartItems(){
         $allProducts=Cart::content();
@@ -24,7 +25,7 @@ class CartController extends Controller
             return view('Cart', ['items'=>$allProducts, 'total'=>$total, 'tax'=> $tax, 'subtotal'=>$subtotal, 'productsTotalNumber'=>$productsTotalNumber]);
        }
       session()->flash('NototalItmes', 'No items Inside Cart');
-      return view('Cart',['message'=>'dsds']);
+      return view('Cart');
     
     }
 
@@ -42,10 +43,13 @@ class CartController extends Controller
         return back()->with('cartItemUpdated','cart item updated');
         
     }
-    public function get(){
-        
-        Session::flash('name', 'imran');
-        // $oldCart = Session::has('cart') ? Session::get('cart') : null;
-        return "dds";
+    public function addToCartPost(Request $request){
+        $qty = $request->quantity;
+        $bed = Bed::find($request->id);
+        $productOnCart=Cart::add($bed->id, $bed->name, $qty, $bed->price, ['image'=>$bed->image]);
+        session()->flash('itemAddedToCart', true);
+        return redirect('getCartItems');
+
     }
+   
 }

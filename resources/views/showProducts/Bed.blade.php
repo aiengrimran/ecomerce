@@ -1,9 +1,8 @@
 @extends('layouts.appShop')
 @section('customCss')
-<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-<link rel="stylesheet" href="{{ asset('css/core-style.css') }}">
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/core-style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 @section('section')
 
 @section('navBar')
@@ -12,7 +11,6 @@
             <h3 class="text-center bg-info">Item Added To Cart</h3>
         </div>
     @endif
-
 
 
 
@@ -34,14 +32,17 @@
         <div class="amado_product_area section-padding-100">
             <div class="container-fluid">
                 @include('partial.ProductFilter')
-                <div class="row mt-4">
-                    @foreach ($chairs as $chair)
+
+
+                <div class="row">
+
+                    @foreach ($beds as $bed)
                         <!-- Single Product Area -->
                         <div class="col-12 col-sm-6 col-md-12 col-xl-6">
                             <div class="single-product-wrapper">
                                 <!-- Product Image -->
                                 <div class="product-img">
-                                    <img src="{{ $chair->image }}" alt="">
+                                    <img src="{{ $bed->image }}" alt="">
                                     <!-- Hover Thumb -->
                                     <img class="hover-img" src="{{ asset('storage/img/product-img/product2.jpg') }}" alt="">
                                 </div>
@@ -51,9 +52,9 @@
                                     <!-- Product Meta Data -->
                                     <div class="product-meta-data">
                                         <div class="line"></div>
-                                        <p class="product-price">${{ $chair->price }}</p>
-                                        <a href="product-details.html">
-                                            <h6>Modern Chair</h6>
+                                        <p class="product-price">${{ $bed->price }}</p>
+                                        <a href="{{url('getProductDetails/'.$bed->id)}}">
+                                            <h6>{{$bed->name}}</h6>
                                         </a>
                                     </div>
                                     <!-- Ratings & Cart -->
@@ -66,7 +67,7 @@
                                             <i class="fa fa-star" aria-hidden="true"></i>
                                         </div>
                                         <div class="cart">
-                                            <a href="addToCart/{{ $chair->id }}" data-toggle="tooltip"
+                                            <a href="addToCart/{{ $bed->id }}" data-toggle="tooltip"
                                                 data-placement="left" title="Add to Cart"><img
                                                     src="{{ asset('storage/img/core-img/cart.png') }}" alt=""></a>
                                         </div>

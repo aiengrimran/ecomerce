@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bed;
 use App\Models\Chair;
 use Illuminate\Http\Request;
 
@@ -25,11 +26,13 @@ class ProductsController extends Controller
             return redirect()->route('allProducts');
         }
         return redirect()->route('allProducts');
-      
-
-        // session()->flash('serachItem', $searchChairs);
         
 
+    }
+    public  function getProductDetails($id)
+    {
+        $productSelected = Bed::find($id);
+        return view('showProducts.productDetails', ['productSelected'=>$productSelected]);
     }
     
     
