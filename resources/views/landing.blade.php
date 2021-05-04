@@ -1,5 +1,10 @@
 @extends('./layouts.appShop')
-@section('fav')<link rel="icon" href="{{asset('storage/img/core-img/favicon.ico')}}">@endsection
+@section('customCss')
+
+<link rel="stylesheet" href="{{asset('css/core-style.css')}}">    
+<link rel="stylesheet" href="{{asset('css/style.css')}}">
+@section('section')
+
 @section('navBar')
     
 
@@ -29,7 +34,7 @@
     <!-- ##### Main Content Wrapper End ##### -->
 
     <!-- ##### Newsletter Area Start ##### -->
-   @include('partial.newslatter')
+   {{-- @include('partial.newslatter') --}}
     <!-- ##### Newsletter Area End ##### -->
 
     <!-- ##### Footer Area Start ##### -->
