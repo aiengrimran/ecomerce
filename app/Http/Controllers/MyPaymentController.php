@@ -42,10 +42,10 @@ class MyPaymentController extends Controller
     return 'payment succssesfull';
 
     }
-    public function int()
-    {
-        $amount= '102,212,212. 0';
-
-        str_replace(',', '', $amount);
+    public function checkout(){
+        return view('showProducts.Checkout',['cartTotal'=> Cart::total(),'subTotal'=>Cart::subTotal()]);
+    }
+    public function savePaymentDetails(Request $request){
+        return $request->name;
     }
 }

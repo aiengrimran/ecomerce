@@ -59,21 +59,17 @@ Route::view('checkClient', 'adminSection.orders');
 Route::view('/shopView', 'showProducts.shop');
 Route::view('vue', 'vue');
 
-<<<<<<< HEAD
 Route::get('/getProductDetails/{id}', [ProductsController::class ,'getProductDetails']);
 
-Route::get('/checkout', [MyPaymentController::class, 'checkout']);
+Route::get('/checkoutForm', [MyPaymentController::class, 'checkout']);
 Route::view('/gg', 'showProducts.productDetails');
-=======
 // Route::get('/google', function () {
 //     return Socialite::driver('facebook')->redirect();
 // });
 Route::get('/auth/facebook', [SocailController::class, 'redirect']);
 Route::get('/login/facebook', [SocailController::class, 'callback']);
-// Route::get('/auth/callback', function () {
-//     return Socialite::driver('facebook')->stateless()->user();
-//     // http://localhost:8000/login/oauth
-//     // http://localhost:8000/login/facebook
-//     // return $user->token;
-// });
->>>>>>> socialite
+
+Route::view('/', 'landing');
+
+Route::view('/checkoutStripe', 'checkout');
+Route::post('/savePaymentDetails', [MyPaymentController::class, 'savePaymentDetails']);

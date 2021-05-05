@@ -24,7 +24,7 @@
             <li><a href="{{url('/shopView')}}">Shop</a></li>
             <li><a href="{{url('/products')}}">Product</a></li>
             <li><a href="{{url('/getCartItems')}}">Cart</a></li>
-            <li><a href="{{url('/checkout')}}">Checkout</a></li>
+            <li><a href="{{url('/checkoutForm')}}">Checkout</a></li>
         </ul>
     </nav>
     <!-- Button Group -->
