@@ -7551,7 +7551,72 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    // title:String,
+    subtotal: String,
+    total: String
+  },
+  data: function data() {
+    return {
+      message: '',
+      user: {
+        address: '',
+        fName: '',
+        lName: '',
+        country: 'Pakistan',
+        email: '',
+        city: '',
+        phone: '',
+        zipCode: '',
+        comment: ''
+      }
+    };
+  },
+  methods: {
+    done: function done() {
+      var _this = this;
+
+      axios.post('/api/create', this.user).then(function (res) {
+        return _this.message = res.data;
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -7577,7 +7642,9 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js"
 
 window.algoliasearch = (algoliasearch_lite__WEBPACK_IMPORTED_MODULE_0___default());
 
-Vue.use(vue_instantsearch__WEBPACK_IMPORTED_MODULE_1__.plugin);
+Vue.use(vue_instantsearch__WEBPACK_IMPORTED_MODULE_1__.plugin); // import VueRouter from 'vue-router';
+// Vue.use(VueRouter);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -7590,7 +7657,7 @@ Vue.use(vue_instantsearch__WEBPACK_IMPORTED_MODULE_1__.plugin);
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue").default);
 Vue.component('algolia', __webpack_require__(/*! ./components/algolia.vue */ "./resources/js/components/algolia.vue").default);
-Vue.component('formm', __webpack_require__(/*! ./components/form.vue */ "./resources/js/components/form.vue").default);
+Vue.component('checkout', __webpack_require__(/*! ./components/form.vue */ "./resources/js/components/form.vue").default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -54740,156 +54807,219 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12 col-lg-8" }, [
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-12 col-lg-8" }, [
+      _vm.message
+        ? _c("div", { staticClass: "bg-info " }, [
+            _c("h3", { staticClass: "text-danger" }, [
+              _vm._v("User created sucssessfully")
+            ])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
       _c("div", { staticClass: "checkout_details_area mt-50 clearfix" }, [
-        _c("div", { staticClass: "cart-title" }, [
-          _c("h2", [_vm._v("Checkout")])
-        ]),
+        _vm._m(0),
         _vm._v(" "),
         _c("form", { attrs: { action: "", method: "post" } }, [
           _c("div", { staticClass: "row" }, [
             _c("div", { staticClass: "col-md-6 mb-3" }, [
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.fName,
+                    expression: "user.fName"
+                  }
+                ],
                 staticClass: "form-control",
                 attrs: {
                   type: "text",
-                  id: "first_name",
-                  name: "name",
-                  value: "",
                   placeholder: "First Name",
                   required: ""
+                },
+                domProps: { value: _vm.user.fName },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.user, "fName", $event.target.value)
+                  }
                 }
               })
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6 mb-3" }, [
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.lName,
+                    expression: "user.lName"
+                  }
+                ],
                 staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "last_name",
-                  value: "",
-                  placeholder: "Last Name",
-                  required: ""
+                attrs: { type: "text", placeholder: "Last Name", required: "" },
+                domProps: { value: _vm.user.lName },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.user, "lName", $event.target.value)
+                  }
                 }
               })
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-12 mb-3" }, [
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.email,
+                    expression: "user.email"
+                  }
+                ],
                 staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "company",
-                  placeholder: "Company Name",
-                  value: ""
+                attrs: { type: "email", placeholder: "Email", value: "" },
+                domProps: { value: _vm.user.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.user, "email", $event.target.value)
+                  }
                 }
               })
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "col-12 mb-3" }, [
-              _c("input", {
-                staticClass: "form-control",
-                attrs: {
-                  type: "email",
-                  id: "email",
-                  placeholder: "Email",
-                  value: ""
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col-12 mb-3" }, [
-              _c("select", { staticClass: "w-100", attrs: { id: "country" } }, [
-                _c("option", { attrs: { value: "usa" } }, [
-                  _vm._v("United States")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "uk" } }, [
-                  _vm._v("United Kingdom")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "ger" } }, [_vm._v("Germany")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "fra" } }, [_vm._v("France")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "ind" } }, [_vm._v("India")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "aus" } }, [
-                  _vm._v("Australia")
-                ]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "bra" } }, [_vm._v("Brazil")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "cana" } }, [_vm._v("Canada")])
-              ])
-            ]),
+            _vm._m(1),
             _vm._v(" "),
             _c("div", { staticClass: "col-12 mb-3" }, [
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.address,
+                    expression: "user.address"
+                  }
+                ],
                 staticClass: "form-control mb-3",
-                attrs: {
-                  type: "text",
-                  id: "street_address",
-                  placeholder: "Address",
-                  value: ""
+                attrs: { type: "text", placeholder: "Address", value: "" },
+                domProps: { value: _vm.user.address },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.user, "address", $event.target.value)
+                  }
                 }
               })
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-12 mb-3" }, [
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.city,
+                    expression: "user.city"
+                  }
+                ],
                 staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "city",
-                  placeholder: "Town",
-                  value: ""
+                attrs: { type: "text", placeholder: "City" },
+                domProps: { value: _vm.user.city },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.user, "city", $event.target.value)
+                  }
                 }
               })
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6 mb-3" }, [
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.zipCode,
+                    expression: "user.zipCode"
+                  }
+                ],
                 staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  id: "zipCode",
-                  placeholder: "Zip Code",
-                  value: ""
+                attrs: { type: "text", placeholder: "Zip Code" },
+                domProps: { value: _vm.user.zipCode },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.user, "zipCode", $event.target.value)
+                  }
                 }
               })
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-md-6 mb-3" }, [
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.phone,
+                    expression: "user.phone"
+                  }
+                ],
                 staticClass: "form-control",
-                attrs: {
-                  type: "number",
-                  id: "phone_number",
-                  min: "0",
-                  placeholder: "Phone No",
-                  value: ""
+                attrs: { type: "number", min: "0", placeholder: "Phone No" },
+                domProps: { value: _vm.user.phone },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.user, "phone", $event.target.value)
+                  }
                 }
               })
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "col-12 mb-3" }, [
               _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.comment,
+                    expression: "user.comment"
+                  }
+                ],
                 staticClass: "form-control w-100",
                 attrs: {
-                  name: "comment",
-                  id: "comment",
                   cols: "30",
                   rows: "10",
                   placeholder: "Leave a comment about your order"
+                },
+                domProps: { value: _vm.user.comment },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.user, "comment", $event.target.value)
+                  }
                 }
               })
             ]),
@@ -54901,7 +55031,16 @@ var staticRenderFns = [
                 [
                   _c("input", {
                     staticClass: "custom-control-input",
-                    attrs: { type: "checkbox", id: "customCheck2" }
+                    attrs: {
+                      type: "checkbox",
+                      value: "Register",
+                      id: "customCheck2"
+                    },
+                    on: {
+                      "~click": function($event) {
+                        return _vm.done()
+                      }
+                    }
                   }),
                   _vm._v(" "),
                   _c(
@@ -54918,6 +55057,125 @@ var staticRenderFns = [
           ])
         ])
       ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-12 col-lg-4" }, [
+      _c("div", { staticClass: "cart-summary" }, [
+        _c("h5", [_vm._v("Cart Total ")]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "summary-table" }, [
+          _c("li", [
+            _c("span", [_vm._v("subtotal:")]),
+            _vm._v(" "),
+            _c("span", [_vm._v("$ " + _vm._s(_vm.subtotal))])
+          ]),
+          _vm._v(" "),
+          _vm._m(2),
+          _vm._v(" "),
+          _c("li", [
+            _c("span", [_vm._v("total:")]),
+            _vm._v(" "),
+            _c("span", [_vm._v("$ " + _vm._s(_vm.total))])
+          ])
+        ]),
+        _vm._v(" "),
+        _vm._m(3),
+        _vm._v(" "),
+        _vm._m(4)
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "cart-title" }, [
+      _c("h2", [_vm._v("Checkout")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-12 mb-3" }, [
+      _c("select", { staticClass: "w-100" }, [
+        _c("option", { attrs: { value: "pk" } }, [_vm._v("Pakistan")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "usa" } }, [_vm._v("United States")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "uk" } }, [_vm._v("United Kingdom")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "ger" } }, [_vm._v("Germany")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "ind" } }, [_vm._v("India")]),
+        _vm._v(" "),
+        _c("option", { attrs: { value: "aus" } }, [_vm._v("Australia")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c("span", [_vm._v("delivery:")]),
+      _vm._v(" "),
+      _c("span", [_vm._v("Free")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "payment-method" }, [
+      _c("div", { staticClass: "custom-control custom-checkbox mr-sm-2" }, [
+        _c("input", {
+          staticClass: "custom-control-input",
+          attrs: { type: "checkbox", id: "cod", checked: "" }
+        }),
+        _vm._v(" "),
+        _c(
+          "label",
+          { staticClass: "custom-control-label", attrs: { for: "cod" } },
+          [_vm._v("Cash on Delivery")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "custom-control custom-checkbox mr-sm-2" }, [
+        _c("input", {
+          staticClass: "custom-control-input",
+          attrs: { type: "checkbox", id: "paypal" }
+        }),
+        _vm._v(" "),
+        _c(
+          "label",
+          { staticClass: "custom-control-label", attrs: { for: "paypal" } },
+          [
+            _vm._v("Paypal\n                        "),
+            _c("img", {
+              staticClass: "ml-15",
+              attrs: { src: "storage/img/core-img/paypal.png" }
+            })
+          ]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "cart-btn mt-100" }, [
+      _c(
+        "a",
+        {
+          staticClass: "btn amado-btn w-100",
+          attrs: { href: "/checkoutStripe" }
+        },
+        [_vm._v("Checkout")]
+      )
     ])
   }
 ]

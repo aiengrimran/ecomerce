@@ -3,8 +3,9 @@
 use App\Models\Bed;
 
 use App\Models\Chair;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Client\Request;
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\ChairController;

@@ -13,6 +13,10 @@ window.algoliasearch = algoliasearch;
 import InstantSearch from 'vue-instantsearch';
 Vue.use(InstantSearch);
 
+// import VueRouter from 'vue-router';
+
+// Vue.use(VueRouter);
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -27,7 +31,7 @@ Vue.use(InstantSearch);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('algolia', require('./components/algolia.vue').default);
-Vue.component('formm', require('./components/form.vue').default);
+Vue.component('checkout', require('./components/form.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
