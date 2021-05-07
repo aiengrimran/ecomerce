@@ -13,9 +13,9 @@ window.algoliasearch = algoliasearch;
 import InstantSearch from 'vue-instantsearch';
 Vue.use(InstantSearch);
 
-// import VueRouter from 'vue-router';
+import VueRouter from 'vue-router'
 
-// Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 
 /**

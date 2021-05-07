@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 use Cart;
-use App\Models\Bed;
+
+use App\Models\Good;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
     public function addToCart($id) {
-        $bed = Bed::find($id);
-        $productOnCart=Cart::add($bed->id, $bed->name, $bed->quantity, $bed->price, ['image'=>$bed->image]);
-        session()->flash('itemAddedToCart', true);
+        $bed = Good::find($id);
+        $productOnCart=Cart::add($bed->id, $bed->title, $bed->qty, $bed->price, ['image'=>$bed->image]);
+        session()->flash('itemAdded', true);
         return back()->with('cartItem',1);
     }
     public function getCartItems(){
@@ -45,8 +46,8 @@ class CartController extends Controller
     }
     public function addToCartPost(Request $request){
         $qty = $request->quantity;
-        $bed = Bed::find($request->id);
-        $productOnCart=Cart::add($bed->id, $bed->name, $qty, $bed->price, ['image'=>$bed->image]);
+        $bed = Good::find($request->id);
+        $productOnCart=Cart::add($bed->id, $bed->title, $qty, $bed->price, ['image'=>$bed->image]);
         session()->flash('itemAddedToCart', true);
         return redirect('getCartItems');
 

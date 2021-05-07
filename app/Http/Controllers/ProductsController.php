@@ -2,38 +2,84 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Bed;
-use App\Models\Chair;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
-    public function createproduct(){
-        return view('adminSection.createProduct');
-    }
-    public function admin(){
-        return view('adminSection.admin');
-    }
-    public function searchProduct(Request $request){
-        $serchfield = '%'. $request->searchProduct. '%';
-        $searchChairs = Chair::where('title', 'LIKE', $serchfield)
-                            ->orWhere('price', 'LIKE', $serchfield)
-                            ->orWhere('quantity', 'LIKE', $serchfield)
-                            ->OrderBy('id', 'DESC')->get();
-       
-        if (count($searchChairs)) {
-            session()->flash('serachItem', $searchChairs);
-            return redirect()->route('allProducts');
-        }
-        return redirect()->route('allProducts');
-        
-
-    }
-    public  function getProductDetails($id)
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        $productSelected = Bed::find($id);
-        return view('showProducts.productDetails', ['productSelected'=>$productSelected]);
+        return view('shop', ['categories'=>Category::get()]);
     }
-    
-    
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        return view('singleCategory', ['products'=>Category::find($id), 'categories'=>Category::get()]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
 }

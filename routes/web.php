@@ -74,3 +74,6 @@ Route::view('/', 'landing');
 
 Route::view('/checkoutStripe', 'checkout');
 Route::post('/savePaymentDetails', [MyPaymentController::class, 'savePaymentDetails']);
+
+Route::get('/getProductsCategoreis', [ProductsController::class, 'index']);
+Route::get('/getProducts/{id}', [ProductsController::class, 'show']);
