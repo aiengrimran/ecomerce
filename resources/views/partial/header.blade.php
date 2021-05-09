@@ -23,7 +23,7 @@
             <li class="active"><a href="{{url('/')}}">Home</a></li>
             <li><a href="{{url('/getProductsCategoreis')}}">Shop</a></li>
             <li><a href="{{url('/products')}}">Product</a></li>
-            <li><a href="{{url('/getCartItems')}}">Cart</a></li>
+            <li><a href="{{url('/getCartItems')}}">Cart {{Cart::content()->count()}}</a></li>
             <li><a href="{{url('/checkoutForm')}}">Checkout</a></li>
         </ul>
     </nav>
@@ -34,7 +34,7 @@
     </div>
     <!-- Cart Menu -->
     <div class="cart-fav-search mb-100">
-        <a href="{{url('/getCartItems')}}" class="cart-nav"><img src="{{asset('storage/img/core-img/cart.png')}}" alt=""> Cart <span>( ) <span></a>
+        <a href="{{url('/getCartItems')}}" class="cart-nav"><img src="{{asset('storage/img/core-img/cart.png')}}" alt=""> Cart <span>( {{Cart::content()->count()}}) <span></a>
         <a href="#" class="fav-nav"><img src="{{asset('storage/img/core-img/favorites.png')}}" alt=""> Favourite</a>
         <a href="#" class="search-nav"><img src="{{asset('storage/img/core-img/search.png')}}" alt=""> Search</a>
     </div>

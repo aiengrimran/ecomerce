@@ -26,21 +26,8 @@ class BedController extends Controller
         $bed = Bed::find($request->deleteBedProduct)->delete();
         return redirect('admin/allproducts');
     }
-    public function edit($id) {
-        return view('adminSection.editBidProduct', ['bed'=> Bed::find($id)]);
-
-    }
-    public function update(Request $request){
-        $bed = Bed::find($request->id);
-        $bed->update([
-            'name' => $request->name,
-            'price' => $request->price,
-            'image'=> $request->image,
-            'quantity'=> $request->quantity
-        ]);
-        return redirect('admin/dashboard');
-
-    }  
+    
+    
     public function removealldata(){
         Bed::truncate();
     }

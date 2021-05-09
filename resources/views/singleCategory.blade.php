@@ -110,7 +110,7 @@
                     <div class="single-product-wrapper">
                         <!-- Product Image -->
                         <div class="product-img">
-                            <img src="{{asset("$product->image")}}" alt="">
+                            <img src="{{asset('storage/'.$product->image)}}" alt="">
                             <!-- Hover Thumb -->
                             <img class="hover-img" src="{{asset('storage/img/product-img/product2.jpg')}}" alt="">
                         </div>

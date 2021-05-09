@@ -58,7 +58,7 @@
 
     <!-- ##### Footer Area Start ##### -->
     @include('partial.footer')
-    {{ session('chairsget')}}
+ 
     {{-- @if (session('chairsget'))
          @forelse ($chairs ?? '' as $chair)
         

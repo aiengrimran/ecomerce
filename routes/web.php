@@ -2,9 +2,10 @@
 
 use App\Models\Bed;
 
+use App\Models\Good;
 use App\Models\Chair;
-use Illuminate\Http\Client\Request;
 
+use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use Laravel\Socialite\Facades\Socialite;
@@ -23,22 +24,17 @@ use App\Http\Controllers\MyPaymentController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-require('bedsRoute.php');
+
 require('admin.php');
 require('cart.php');
 
-// Route::get('/', function () {
-//     return view('landing');
-// });
+Route::get('/', function () {
+    return view('landing');
+});
 
 
 Route::post('/pay', [MyPaymentController::class,'paymentprocess']);
 
-Route::get('/add', [BedController::class, 'try']);
-Route::get('/add', [BedController::class, 'try']);
-Route::get('/get', [BedController::class, 'get'])->name('get');
-// getting chair and updaing etc
-Route::get('/getChairsProducts', [ChairController::class, 'index']);
 
 Route::get('/shop', function () {
     return view('Checkout');
@@ -57,7 +53,7 @@ Route::get('searchScout', function(){
 
 Route::view('checkClient', 'adminSection.orders');
 
-Route::view('/shopView', 'showProducts.shop');
+
 Route::view('vue', 'vue');
 
 Route::get('/getProductDetails/{id}', [ProductsController::class ,'getProductDetails']);
@@ -77,3 +73,7 @@ Route::post('/savePaymentDetails', [MyPaymentController::class, 'savePaymentDeta
 
 Route::get('/getProductsCategoreis', [ProductsController::class, 'index']);
 Route::get('/getProducts/{id}', [ProductsController::class, 'show']);
+
+Route::get('goods', function(){
+    return Good::get();
+});
