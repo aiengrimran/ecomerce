@@ -23,10 +23,10 @@
                     <div class="col-12">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb mt-50">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
                                 <li class="breadcrumb-item"><a href="#">Furniture</a></li>
-                                <li class="breadcrumb-item"><a href="#">Chairs</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">white modern chair</li>
+                                <li class="breadcrumb-item"><a href="{{url('getProducts/'.$product->id)}}">{{$product->category->categoryName}}</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{{$product->title}}</li>
                             </ol>
                         </nav>
                     </div>
@@ -48,12 +48,12 @@
                                 </ol>
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <a class="gallery_img" href="{{$productSelected->image}}">
-                                            <img class="d-block w-100" src="{{asset('storage/img/product-img/pro-big-1.jpg')}}" alt="First slide">
+                                        <a class="gallery_img" href="{{asset('storage/'.$product->image)}}">
+                                            <img class="d-block w-100" src="{{asset('storage/'.$product->image)}}" alt="First slide">
                                         </a>
                                     </div>
                                     <div class="carousel-item">
-                                        <a class="gallery_img" href="img/product-img/pro-big-2.jpg">
+                                        <a class="gallery_img" href="{{asset('storage/'.$product->image)}}">
                                             <img class="d-block w-100" src="{{asset('storage/img/product-img/pro-big-2.jpg')}}" alt="Second slide">
                                         </a>
                                     </div>
@@ -63,7 +63,7 @@
                                         </a>
                                     </div>
                                     <div class="carousel-item">
-                                        <a class="gallery_img" href="img/product-img/pro-big-4.jpg">
+                                        <a class="gallery_img" href="{{asset('storage/img/product-img/pro-big-4.jpg')}}">
                                             <img class="d-block w-100" src="{{asset('storage/img/product-img/pro-big-4.jpg')}}" alt="Fourth slide">
                                         </a>
                                     </div>
@@ -76,9 +76,9 @@
                             <!-- Product Meta Data -->
                             <div class="product-meta-data">
                                 <div class="line"></div>
-                                <p class="product-price">${{$productSelected->price}}</p>
+                                <p class="product-price">${{$product->price}}</p>
                                 <a href="product-details.html">
-                                    <h6>{{$productSelected->name}}</h6>
+                                    <h6>{{$product->title}}</h6>
                                 </a>
                                 <!-- Ratings & Review -->
                                 <div class="ratings-review mb-15 d-flex align-items-center justify-content-between">
@@ -98,14 +98,14 @@
                             </div>
 
                             <div class="short_overview my-5">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid quae eveniet culpa officia quidem mollitia impedit iste asperiores nisi reprehenderit consequatur, autem, nostrum pariatur enim?</p>
+                                <p>{{ $product->descrption }}</p>
                             </div>
 
                             <!-- Add to Cart Form -->
                             <form class="cart clearfix" action="{{url('addToCartFromProductDetails')}}" method="POST">
                                 @csrf
                                 <div class="cart-btn d-flex mb-50">
-                                    <input type="hidden" value="{{$productSelected->id}}" name="id">
+                                    <input type="hidden" value="{{$product->id}}" name="id">
                                     <p>Qty</p>
                                     <div class="quantity">
                                         <span class="qty-minus" onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;"><i class="fa fa-caret-down" aria-hidden="true"></i></span>

@@ -1,9 +1,4 @@
 @extends('layouts.appShop')
-@section('customCss')
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/core-style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-@section('section')
 @section('navBar')
 @if (Session::has('itemAdded'))
     <div class="bg-info ml-5 mt-1" style="width: 30%">
@@ -121,7 +116,7 @@
                             <div class="product-meta-data">
                                 <div class="line"></div>
                                 <p class="product-price">${{$product->price}}</p>
-                                <a href="product-details.html">
+                                <a href="{{url('productDetails/'.$product->id)}}">
                                     <h6>{{$product->title}}</h6>
                                 </a>
                             </div>

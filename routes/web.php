@@ -32,13 +32,7 @@ Route::get('/', function () {
     return view('landing');
 });
 
-
 Route::post('/pay', [MyPaymentController::class,'paymentprocess']);
-
-
-Route::get('/shop', function () {
-    return view('Checkout');
-});
 
 Auth::routes();
 
@@ -50,14 +44,9 @@ Route::post('/stripe', [MyPaymentController::class,'stripePost'])->name('stripe.
 Route::get('searchScout', function(){
    return Bed::search('Cremin')->get();
 });
-
 Route::view('checkClient', 'adminSection.orders');
-
-
 Route::view('vue', 'vue');
-
 Route::get('/getProductDetails/{id}', [ProductsController::class ,'getProductDetails']);
-
 Route::get('/checkoutForm', [MyPaymentController::class, 'checkout']);
 Route::view('/gg', 'showProducts.productDetails');
 // Route::get('/google', function () {
@@ -65,15 +54,15 @@ Route::view('/gg', 'showProducts.productDetails');
 // });
 Route::get('/auth/facebook', [SocailController::class, 'redirect']);
 Route::get('/login/facebook', [SocailController::class, 'callback']);
-
-Route::view('/', 'landing');
-
 Route::view('/checkoutStripe', 'checkout');
 Route::post('/savePaymentDetails', [MyPaymentController::class, 'savePaymentDetails']);
 
 Route::get('/getProductsCategoreis', [ProductsController::class, 'index']);
 Route::get('/getProducts/{id}', [ProductsController::class, 'show']);
+Route::get('productDetails/{id}', [ProductsController::class, 'productDetails']);
 
-Route::get('goods', function(){
-    return Good::get();
+Route::get('/delete', function(){
+    $products= Good::paginate(6);
+    return $products;
+    // return $products->first_page_url;
 });

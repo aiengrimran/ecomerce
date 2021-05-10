@@ -1,8 +1,5 @@
 @extends('layouts.appShop')
 @section('customCss')
-    <link rel="stylesheet" href="{{ asset('css/core-style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-
 @endsection
 @section('navBar')
 <div class="container mt-5">

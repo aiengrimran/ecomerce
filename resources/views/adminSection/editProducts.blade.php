@@ -1,7 +1,5 @@
 @extends('layouts.appShop')
 @section('customCss')
-    <link rel="stylesheet" href="{{ asset('css/core-style.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <style>
         table {
             border: 1px solid saddlebrown;

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Good;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        return view('shop', ['categories'=>Category::get()]);
+        return view('shop', ['categories'=>Category::all(), 'products'=>Good::paginate(6)]);
     }
 
     /**
@@ -81,5 +82,8 @@ class ProductsController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function productDetails($id){
+        return view('showProducts.productDetails', ['product'=>Good::find($id)]);
     }
 }
