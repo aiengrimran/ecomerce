@@ -47,7 +47,7 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        return view('singleCategory', ['products'=>Category::find($id), 'categories'=>Category::get()]);
+        return view('singleCategory', ['products'=>Good::where('category_id', $id)->paginate(3), 'categories'=>Category::get()]);
     }
 
     /**

@@ -97,9 +97,9 @@
             <div class="row">
 
                 <!-- Single Product Area -->
-                @foreach ($products->goods as $product)
+                @foreach ($products as $product)
                 
-                    
+              
                 
                 <div class="col-12 col-sm-6 col-md-12 col-xl-6">
                     <div class="single-product-wrapper">
@@ -140,18 +140,19 @@
                 @endforeach
 
             </div>
-
+            
             <div class="row">
                 <div class="col-12">
                     <!-- Pagination -->
-                    <nav aria-label="navigation">
+                    {{ $products->links() }}
+                    {{-- <nav aria-label="navigation">
                         <ul class="pagination justify-content-end mt-50">
                             <li class="page-item active"><a class="page-link" href="#">01.</a></li>
                             <li class="page-item"><a class="page-link" href="#">02.</a></li>
                             <li class="page-item"><a class="page-link" href="#">03.</a></li>
                             <li class="page-item"><a class="page-link" href="#">04.</a></li>
                         </ul>
-                    </nav>
+                    </nav> --}}
                 </div>
             </div>
         </div>
