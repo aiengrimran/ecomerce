@@ -22,7 +22,7 @@
         <ul>
             <li class="active"><a href="{{url('/')}}">Home</a></li>
             <li><a href="{{url('/getProductsCategoreis')}}">Shop</a></li>
-            <li><a href="{{url('/products')}}">Product</a></li>
+            <li><a href="{{url('/products')}}">About Us</a></li>
             <li><a href="{{url('/getCartItems')}}">Cart Page {{Cart::content()->count()}}</a></li>
             <li><a href="{{url('/checkoutForm')}}">Checkout</a></li>
         </ul>

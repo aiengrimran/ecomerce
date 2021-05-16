@@ -84,6 +84,9 @@ class ProductsController extends Controller
         //
     }
     public function productDetails($id){
-        return view('showProducts.productDetails', ['product'=>Good::find($id)]);
+        $product= Good::find($id);
+        $similarProducts = Good::where('category_id', '=', $product->category_id)
+        ->where('id', '!=', $product->id)->limit(4)->get();
+        return view('showProducts.productDetails', ['product'=>$product, 'similarProducts' => $similarProducts]);
     }
 }

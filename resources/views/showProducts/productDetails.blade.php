@@ -2,6 +2,7 @@
 @section('customCss')
 <link rel="stylesheet" href="{{asset('css/core-style.css')}}">    
 <link rel="stylesheet" href="{{asset('css/style.css')}}">
+<script src="{{asset('js/bootstrap.min.js')}}"></script>
 @endsection
 @section('navBar')
     <!-- Search Wrapper Area Start -->
@@ -62,11 +63,11 @@
                                             <img class="d-block w-100" src="{{asset('storage/img/product-img/pro-big-3.jpg')}}" alt="Third slide">
                                         </a>
                                     </div>
-                                    <div class="carousel-item">
+                                    {{-- <div class="carousel-item">
                                         <a class="gallery_img" href="{{asset('storage/img/product-img/pro-big-4.jpg')}}">
                                             <img class="d-block w-100" src="{{asset('storage/img/product-img/pro-big-4.jpg')}}" alt="Fourth slide">
                                         </a>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -124,10 +125,10 @@
         <!-- Product Details Area End -->
     </div>
     <!-- ##### Main Content Wrapper End ##### -->
-
+   @include('partial.similarProducts')
     
     <!-- ##### Newsletter Area End ##### -->
-
+    @include('partial.footer')
     <!-- ##### Footer Area Start ##### -->
    
     @endsection

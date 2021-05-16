@@ -60,7 +60,7 @@ Route::post('/savePaymentDetails', [MyPaymentController::class, 'savePaymentDeta
 Route::get('/getProductsCategoreis', [ProductsController::class, 'index']);
 Route::get('/getProducts/{id}', [ProductsController::class, 'show']);
 Route::get('productDetails/{id}', [ProductsController::class, 'productDetails']);
-
+Route::view('ca', 'partial.similarProducts');
 Route::get('/delete', function(){
     $products= Good::paginate(6);
     return $products;
