@@ -10,7 +10,7 @@
         "algolia/scout-extended": "^1.17",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
-        "guzzlehttp/guzzle": "^7.0.1",
+        "guzzlehttp/guzzle": "^7.3",
         "hardevine/shoppingcart": "^2.9",
         "laravel/cashier": "^12.12",
         "laravel/framework": "^8.12",

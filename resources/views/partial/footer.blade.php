@@ -6,13 +6,14 @@
             <div class="col-12 col-lg-6 col-xl-7">
                 <div class="newsletter-text mb-100">
                     <h2>Subscribe for a <span>25% Discount</span></h2>
-                    <p>Nulla ac convallis lorem, eget euismod nisl. Donec in libero sit amet mi vulputate consectetur. Donec auctor interdum purus, ac finibus massa bibendum nec.</p>
+                    <p>We will email you with products and also give you special discount.</p>
                 </div>
             </div>
             <!-- Newsletter Form -->
             <div class="col-12 col-lg-6 col-xl-5">
                 <div class="newsletter-form mb-100">
-                    <form action="#" method="post">
+                    <form action="{{url('subscibeNewsletter')}}" method="post">
+                        @csrf
                         <input type="email" name="email" class="nl-email" placeholder="Your E-mail">
                         <input type="submit" value="Subscribe">
                     </form>
@@ -32,7 +33,7 @@
                 <div class="single_widget_area">
                     <!-- Logo -->
                     <div class="footer-logo mr-50">
-                        <a href="index.html"><img src="{{asset('storage/img/core-img/logo2.png')}}" alt=""></a>
+                        <a href="{{url('')}}"><img src="{{asset('storage/img/core-img/logo2.png')}}" alt=""></a>
                     </div>
                     <!-- Copywrite Text -->
                     <p class="copywrite"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
@@ -50,19 +51,19 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                             <div class="collapse navbar-collapse" id="footerNavContent">
                                 <ul class="navbar-nav ml-auto">
                                     <li class="nav-item active">
-                                        <a class="nav-link" href="index.html">Home</a>
+                                        <a class="nav-link" href="{{url('/')}}">Home</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="shop.html">Shop</a>
+                                        <a class="nav-link" href="{{url('/getProductsCategoreis')}}">Shop</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="product-details.html">Product</a>
+                                        <a class="nav-link" href="{{url('/')}}">About Us</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="cart.html">Cart</a>
+                                        <a class="nav-link" href="{{url('/getCartItems')}}">Cart</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="checkout.html">Checkout</a>
+                                        <a class="nav-link" href="{{url('/checkoutForm')}}">Checkout</a>
                                     </li>
                                 </ul>
                             </div>

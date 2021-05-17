@@ -21,21 +21,23 @@
 
 
 
-<div class="container">
+<div class="container mbotom">
     <div class="row">
-        <div class="row">
-            <div class="col-md-9  ">
-                <h3>Products Showcase using carousel and Bootstrap</h3>
-            </div>
-            <div class=" oofset-1 col-md-3">
-                <!-- Controls -->
-                <div class="controls pull-right hidden-xs">
-                    <a class="left fa fa-chevron-left btn btn" href="#carousel-example"
-                        data-slide="prev"></a><a class="right fa fa-chevron-right btn" href="#carousel-example"
-                            data-slide="next"></a>
-                </div>
+        <div class="col-md-6 offset-2  ">
+            <h3 class="heading">Products from same Categorie</h3>
+        </div>
+        
+        <div class="col-md-3">
+            <!-- Controls -->
+            <div class="controls pull-right hidden-xs">
+                <a class="left fa fa-chevron-left btn btn" href="#carousel-example"
+                    data-slide="prev"></a><a class="right fa fa-chevron-right btn" href="#carousel-example"
+                        data-slide="next"></a>
             </div>
         </div>
+    </div>
+    <div class="row">
+       
         <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
@@ -84,6 +86,13 @@
 </div>
 
 <style>
+    .heading{
+        color: #00990E;
+        font-size: 30px;
+    }
+.mbotom{
+margin-bottom: 25vh;
+}
 .col-item
 {
     border: 2px solid #23a166;

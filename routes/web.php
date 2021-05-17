@@ -1,11 +1,14 @@
 <?php
 
-use App\Models\Bed;
+
 
 use App\Models\Good;
-use App\Models\Chair;
 
+
+use App\Mail\OrderPlaced;
+use App\Mail\OrderShipped;
 use Illuminate\Http\Client\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
 use Laravel\Socialite\Facades\Socialite;
@@ -13,6 +16,7 @@ use App\Http\Controllers\ChairController;
 use App\Http\Controllers\SocailController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\MyPaymentController;
+use App\Http\Controllers\SubcriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,3 +70,9 @@ Route::get('/delete', function(){
     return $products;
     // return $products->first_page_url;
 });
+
+// Route::get('/sendmail', function(){
+//     return Mail::to('here@example.com')->send(new OrderPlaced);
+// });
+
+Route::post('/subscibeNewsletter', [SubcriptionController::class, 'add']);
