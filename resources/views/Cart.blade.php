@@ -2,11 +2,6 @@
 @section('customCss')
 @section('section')
 
-    @if (session('cartItemUpdated'))
-        <div class="alert alert-success" role="alert">
-            <p>cart item updated</p>
-        </div>
-    @endif
     
     <!-- Search Wrapper Area Start -->
     @include('partial.products1')

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Subcription;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SubcriptionController extends Controller
 {
@@ -11,6 +12,8 @@ class SubcriptionController extends Controller
         Subcription::create([
             'email'=> $request->email
         ]);
-        session()->flash('emailadded', true);
+        Alert::success('Email Subscribed', 'thankyou for subscription to email news letter');
+
+        return back();
     }
 }

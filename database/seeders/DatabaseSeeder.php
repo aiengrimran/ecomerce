@@ -1,9 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\Bed;
 use App\Models\Good;
-use App\Models\Chair;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -16,8 +14,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
-        // Bed::factory(10)->create();
-        // Chair::factory(10)->create();
         Good::factory(6)->create();
     }
 }

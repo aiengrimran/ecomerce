@@ -27,7 +27,6 @@ class GoodFactory extends Factory
            'price'=> $this->faker->randomNumber($nbDigits = 3, $strict = false),
            'descrption'=> $this->faker->sentence($nbWords = 6, $variableNbWords = true),
            'qty'=> $this->faker->randomDigitNot(0),
-           'image'=> 'storage/img/product-img/product5.jpg'
 
         ];
     }

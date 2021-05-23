@@ -5,9 +5,10 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="search-content" id="app">
+                <div class="search-content">
                     <form action="#" method="get">
-                        <algolia></algolia>
+                        
+                        {{-- <algolia></algolia> --}}
                         {{-- <input type="search" name="search" id="search" placeholder="Type your keyword..."> --}}
                         <button type="submit"><img src="{{asset('storage/img/core-img/search.png')}}" alt=""></button>
                     </form>

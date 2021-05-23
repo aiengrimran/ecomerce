@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Good;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductsController extends Controller
 {
@@ -13,6 +14,11 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function getProductsInRandomOrder(){
+        $products= Good::inRandomOrder()->limit(15)->get();
+        return view('landing', ['products'=> $products]);
+    }
+    // shop view
     public function index()
     {
         return view('shop', ['categories'=>Category::all(), 'products'=>Good::paginate(6)]);
@@ -89,4 +95,5 @@ class ProductsController extends Controller
         ->where('id', '!=', $product->id)->limit(4)->get();
         return view('showProducts.productDetails', ['product'=>$product, 'similarProducts' => $similarProducts]);
     }
+ 
 }

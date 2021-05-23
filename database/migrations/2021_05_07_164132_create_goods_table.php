@@ -17,10 +17,13 @@ class CreateGoodsTable extends Migration
             $table->id();
             $table->foreignId('category_id')->constrained();
             $table->string('title');
+            $table->string('brand')->nullable();
+            $table->string('tags')->nullable();
             $table->integer('price');
             $table->string('descrption');
             $table->integer('qty');
             $table->string('image')->nullable();
+            $table->string('images')->nullable();
             $table->timestamps();
         });
     }

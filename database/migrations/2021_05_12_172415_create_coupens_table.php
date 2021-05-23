@@ -15,6 +15,9 @@ class CreateCoupensTable extends Migration
     {
         Schema::create('coupens', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('type');
+            $table->string('code');
             $table->timestamps();
         });
     }

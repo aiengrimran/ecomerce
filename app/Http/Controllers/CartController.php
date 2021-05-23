@@ -6,12 +6,14 @@ use Cart;
 use App\Models\Good;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CartController extends Controller
 {
     public function addToCart($id) {
         $bed = Good::find($id);
-        $productOnCart=Cart::add($bed->id, $bed->title, $bed->qty, $bed->price, ['image'=>$bed->image]);
+        $productOnCart=Cart::add($bed->id, $bed->title, 1, $bed->price, ['image'=>$bed->image]);
+        \toast('Item Added To Cart');
         session()->flash('itemAdded', true);
         return back()->with('cartItem',1);
     }
@@ -25,6 +27,7 @@ class CartController extends Controller
             session(['totalamount'=>$total,'productsTotalNumber'=>$productsTotalNumber]);
             return view('Cart', ['items'=>$allProducts, 'total'=>$total, 'tax'=> $tax, 'subtotal'=>$subtotal, 'productsTotalNumber'=>$productsTotalNumber]);
        }
+       toast('No items Inside Cart!','error');
       session()->flash('NototalItmes', 'No items Inside Cart');
       return view('Cart');
     

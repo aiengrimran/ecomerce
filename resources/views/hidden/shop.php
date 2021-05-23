@@ -7,7 +7,11 @@
         width: 60px;
     }
 </style>
-
+@if (Session::has('itemAdded'))
+    <div class="bg-info ml-5 mt-1" style="width: 30%">
+        <p>item added to cart</p>
+    </div>
+@endif
   @include('partial.products1')
 <!-- Search Wrapper Area End -->
 

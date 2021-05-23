@@ -16,7 +16,7 @@
 </head>
 <body>
    
-
+    @include('sweetalert::alert')
     @yield('navBar')
 
     @yield('section')
