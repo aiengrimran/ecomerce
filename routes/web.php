@@ -80,3 +80,5 @@ Route::view('/delete', 'Shop');
 Route::post('/subscibeNewsletter', [SubcriptionController::class, 'add']);
 
 Route::get('/', [ProductsController::class, 'getProductsInRandomOrder']);
+
+Route::view('/AboutMe', 'partial.aboutme');
