@@ -41,7 +41,7 @@ class AdminController extends Controller
     }
     public function store(Request $request){
         $image = $request->file('image')->store('img/product-img', 'public');
-        
+        // \dd($image);
         Good::create([
             'category_id'=>$request->categoryId,
             'title'=>$request->title,
@@ -82,3 +82,4 @@ class AdminController extends Controller
 
     }
 }
+// heroku buildpacks:add https://github.com/velizarn/heroku-buildpack-nano -a icommerce

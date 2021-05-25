@@ -41,7 +41,7 @@ Route::post('/pay', [MyPaymentController::class,'paymentprocess']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::view('checkout',[BedController::class, 'get']);
+
 Route::post('/stripe', [MyPaymentController::class,'stripePost'])->name('stripe.post');
 
 	

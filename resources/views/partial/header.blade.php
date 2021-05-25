@@ -23,18 +23,26 @@
             <li class="active"><a href="{{url('/')}}">Home</a></li>
             <li><a href="{{url('/getProductsCategoreis')}}">Shop</a></li>
             <li><a href="{{url('/AboutMe')}}">About Us</a></li>
-            <li><a href="{{url('/getCartItems')}}">Cart Page {{Cart::content()->count()}}</a></li>
+            <li><a href="{{url('/getCartItems')}}">Cart Page {{Cart::instance('cart')->content()->count()}}</a></li>
             <li><a href="{{url('/checkoutForm')}}">Checkout</a></li>
         </ul>
     </nav>
-    <!-- Button Group -->
-    <div class="amado-btn-group mt-30 mb-100">
-        <a href="#" class="btn amado-btn mb-15">%Discount%</a>
-        <a href="#" class="btn amado-btn active">New this week</a>
-    </div>
+    @auth
+        <div class="amado-btn-group mt-30 mb-100">
+            <a class="btn amado-btn">Dashborad</a>
+            <a class="btn amado-btn mt-2" style="background-color: blue;" href="/logout">Logout</a>
+        </div>
+    @else
+            <!-- Button Group -->
+        <div class="amado-btn-group mt-30 mb-100">
+            <a href="{{url('/register')}}" class="btn amado-btn mb-15">Register</a>
+            <a href="{{url('login')}}" class="btn amado-btn active">Log In</a>
+        </div> 
+    @endauth
+   
     <!-- Cart Menu -->
     <div class="cart-fav-search mb-100">
-        <a href="{{url('/getCartItems')}}" class="cart-nav"><img src="{{asset('storage/img/core-img/cart.png')}}" alt=""> Cart <span>( {{Cart::content()->count()}}) <span></a>
+        <a href="{{url('/getCartItems')}}" class="cart-nav"><img src="{{asset('storage/img/core-img/cart.png')}}" alt=""> Cart <span>( {{Cart::instance('cart')->content()->count()}}) <span></a>
         <a href="#" class="fav-nav"><img src="{{asset('storage/img/core-img/favorites.png')}}" alt=""> Favourite</a>
         <a href="#" class="search-nav"><img src="{{asset('storage/img/core-img/search.png')}}" alt=""> Search</a>
     </div>
