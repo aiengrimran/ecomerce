@@ -29,8 +29,12 @@
     </nav>
     @auth
         <div class="amado-btn-group mt-30 mb-100">
-            <a class="btn amado-btn">Dashborad</a>
-            <a class="btn amado-btn mt-2" style="background-color: blue;" href="/logout">Logout</a>
+            <a class="btn amado-btn" href="{{url('userDashboard')}}">Dashborad</a>
+            <form action="{{url('logout')}}" method="post">
+            @csrf
+            <button class="btn amado-btn mt-2" style="background-color: blue;">Logout</button>
+            </form>
+            
         </div>
     @else
             <!-- Button Group -->
@@ -43,7 +47,7 @@
     <!-- Cart Menu -->
     <div class="cart-fav-search mb-100">
         <a href="{{url('/getCartItems')}}" class="cart-nav"><img src="{{asset('storage/img/core-img/cart.png')}}" alt=""> Cart <span>( {{Cart::instance('cart')->content()->count()}}) <span></a>
-        <a href="#" class="fav-nav"><img src="{{asset('storage/img/core-img/favorites.png')}}" alt=""> Favourite</a>
+        <a href="#" class="fav-nav"><img src="{{asset('storage/img/core-img/favorites.png')}}" alt=""> Favourite {{Cart::instance('favorite')->content()->count()}}</a>
         <a href="#" class="search-nav"><img src="{{asset('storage/img/core-img/search.png')}}" alt=""> Search</a>
     </div>
     <!-- Social Button -->

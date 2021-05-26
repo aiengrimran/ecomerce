@@ -28,7 +28,7 @@ use App\Http\Controllers\SubcriptionController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+require('user.php');
 require('admin.php');
 require('cart.php');
 
