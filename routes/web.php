@@ -28,7 +28,7 @@ use App\Http\Controllers\SubcriptionController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+require('user.php');
 require('admin.php');
 require('cart.php');
 
@@ -41,7 +41,7 @@ Route::post('/pay', [MyPaymentController::class,'paymentprocess']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::view('checkout',[BedController::class, 'get']);
+
 Route::post('/stripe', [MyPaymentController::class,'stripePost'])->name('stripe.post');
 
 	
@@ -80,3 +80,5 @@ Route::view('/delete', 'Shop');
 Route::post('/subscibeNewsletter', [SubcriptionController::class, 'add']);
 
 Route::get('/', [ProductsController::class, 'getProductsInRandomOrder']);
+
+Route::view('/AboutMe', 'partial.aboutme');

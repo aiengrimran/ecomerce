@@ -6,6 +6,9 @@
         height: 80px;
         width: 60px;
     }
+.product-img { position: relative; }
+.product-img img { display: block; }
+.product-img .fa-heart { position: absolute; color: brown; font-size: 50px; top:0; right:0; }
 </style>
 
   @include('partial.products1')
@@ -100,14 +103,18 @@
             @include('partial.ProductFilter')
             <div class="row">
                 @foreach ($products as $product)
+              
                 <!-- Single Product Area -->
-                <div class="col-12 col-sm-6 col-md-12 col-xl-6">
-                    <div class="single-product-wrapper">
+                <div class="col-12 col-sm-6 col-md-12 col-xl-6 ">
+                    
+                    <div class="single-product-wrapper ">
                         <!-- Product Image -->
-                        <div class="product-img">
-                            <img src="{{asset('storage/'.$product->image)}}" alt="">
+                        <div class="product-img ">
+                           
+                            <img  src="{{asset('storage/img/product-img/HJlgvtexthlJdEIa8TPj8FbySNgChXvrKsIZxeXR.jpg')}}" alt="">
                             <!-- Hover Thumb -->
-                            <img class="hover-img" src="img/product-img/product1.jpg" alt="">
+                            <a href="{{url('/addToCartFavorite/'.$product->id)}}"><i class="fa fa-heart" aria-hidden="true"></i></a>
+                            <img class="hover-img" src="img/product-img/product1.jpg"  alt="">
                         </div>
                         <!-- Product Description -->
                         <div class="product-description d-flex align-items-center justify-content-between">

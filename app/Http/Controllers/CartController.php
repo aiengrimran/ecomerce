@@ -11,14 +11,14 @@ use RealRashid\SweetAlert\Facades\Alert;
 class CartController extends Controller
 {
     public function addToCart($id) {
-        $bed = Good::find($id);
-        $productOnCart=Cart::add($bed->id, $bed->title, 1, $bed->price, ['image'=>$bed->image]);
+        $product = Good::find($id);
+        $productOnCart=Cart::instance('cart')->add($product->id, $product->title, 1, $product->price, ['image'=>$product->image]);
         \toast('Item Added To Cart');
         session()->flash('itemAdded', true);
         return back()->with('cartItem',1);
     }
     public function getCartItems(){
-        $allProducts=Cart::content();
+        $allProducts=Cart::instance('cart')->content();
         $productsTotalNumber=count($allProducts);
        if($productsTotalNumber){          
             $subtotal= str_replace(',', '', Cart::subtotal());
@@ -34,26 +34,34 @@ class CartController extends Controller
     }
 
     public function destroy() {
-        Cart::destroy();
+        Cart::instance('cart')->destroy();
 
     }
     public function deleteCartItem($rowId){       
-        Cart::remove($rowId);
+        Cart::instance('cart')->remove($rowId);
         return redirect()->route('get.Cart.Items');  
     }
 
     public function updateCartItem(Request $request){
-        Cart::update($request->rowId, $request->quantity);
+        Cart::instance('cart')->update($request->rowId, $request->quantity);
         return back()->with('cartItemUpdated','cart item updated');
         
     }
     public function addToCartPost(Request $request){
         $qty = $request->quantity;
-        $bed = Good::find($request->id);
-        $productOnCart=Cart::add($bed->id, $bed->title, $qty, $bed->price, ['image'=>$bed->image]);
+        $product = Good::find($request->id);
+        $productOnCart=Cart::instance('cart')->add($product->id, $product->title, $qty, $product->price, ['image'=>$product->image]);
         session()->flash('itemAddedToCart', true);
         return redirect('getCartItems');
 
+    }
+    public function addToCartFavorite($id) {
+        $product = Good::find($id);
+        Cart::instance('favorite')->add($product->id, $product->title, 1, $product->price, ['image'=>$product->image]);
+        \toast('Item Added To Cart');
+        session()->flash('itemAdded', true);
+        return back()->with('cartItem',1);
+        
     }
    
 }

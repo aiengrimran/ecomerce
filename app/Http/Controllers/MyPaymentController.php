@@ -43,7 +43,7 @@ class MyPaymentController extends Controller
 
     }
     public function checkout(){
-        return view('showProducts.Checkout',['cartTotal'=> Cart::total(),'subTotal'=>Cart::subTotal()]);
+        return view('showProducts.Checkout',['cartTotal'=> Cart::instance('cart')->total(),'subTotal'=>Cart::instance('cart')->subTotal()]);
     }
     public function savePaymentDetails(Request $request){
         return $request->name;

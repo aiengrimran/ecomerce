@@ -19,4 +19,8 @@ class RegisterCustomerController extends Controller
         return 'mubrak';
 
     }
+    public function userDashboard(){
+        return view('user.dashboard');
+        // dd(auth()->user()->email);
+    }
 }
