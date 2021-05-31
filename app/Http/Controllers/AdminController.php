@@ -42,7 +42,7 @@ class AdminController extends Controller
     public function store(Request $request){
         $image = $request->file('image')->store('img/product-img', 'public');
         // \dd($image);
-        Good::create([
+        $product=Good::create([
             'category_id'=>$request->categoryId,
             'title'=>$request->title,
             'price'=>$request->price,
@@ -50,6 +50,7 @@ class AdminController extends Controller
             'descrption'=>$request->descrption,
             'image'=>$image
         ]);
+        dd($product);
         return redirect('admin/allproducts');
     }
     public function destroy(Request $request){
