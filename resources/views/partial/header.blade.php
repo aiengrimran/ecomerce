@@ -46,7 +46,7 @@
    
     <!-- Cart Menu -->
     <div class="cart-fav-search mb-100">
-        <a href="{{url('/getCartItems')}}" class="cart-nav"><img src="{{asset('storage/avatars/Y5xHBNHN83J8DX6iyMsPALtx3eidzidv8T3snpkN.jpg')}}" alt=""> Cart <span>( {{Cart::instance('cart')->content()->count()}}) <span></a>
+        <a href="{{url('/getCartItems')}}" class="cart-nav"><img src="{{asset('storage/avatars/Y5xHBNHN83J8DX6iyMsPALtx3eidzidv8T3snpkN.jpg')}}" alt=""> Cart <span>( {{Cart::instance('cart')->content()->count()}}) xx <span></a>
         <a href="#" class="fav-nav"><img src="{{asset('storage/img/core-img/favorites.png')}}" alt=""> Favourite {{Cart::instance('favorite')->content()->count()}}</a>
         <a href="#" class="search-nav"><img src="{{asset('storage/img/core-img/search.png')}}" alt=""> Search</a>
     </div>
