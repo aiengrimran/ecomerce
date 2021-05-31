@@ -40,17 +40,19 @@ class AdminController extends Controller
         return view('showProducts.productDetails', ['productSelected'=>$productSelected]);
     }
     public function store(Request $request){
-        $image = $request->file('image')->store('img/product-img', 'public');
+        // $image = $request->file('image')->store('img/product-img', 'public');
+        $path = $request->file('image')->store('avatars', 'public');
+        return $path;
         // \dd($image);
-        $product=Good::create([
-            'category_id'=>$request->categoryId,
-            'title'=>$request->title,
-            'price'=>$request->price,
-            'qty'=> $request->qty,
-            'descrption'=>$request->descrption,
-            'image'=>$image
-        ]);
-        dd($product);
+        // $product=Good::create([
+        //     'category_id'=>$request->categoryId,
+        //     'title'=>$request->title,
+        //     'price'=>$request->price,
+        //     'qty'=> $request->qty,
+        //     'descrption'=>$request->descrption,
+        //     'image'=>$image
+        // ]);
+        // dd($product);
         return redirect('admin/allproducts');
     }
     public function destroy(Request $request){
