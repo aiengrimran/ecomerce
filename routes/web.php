@@ -10,6 +10,7 @@ use App\Mail\OrderShipped;
 use Illuminate\Http\Client\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use Intervention\Image\Facades\Image;
 use App\Http\Controllers\CartController;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\ChairController;
@@ -82,3 +83,9 @@ Route::post('/subscibeNewsletter', [SubcriptionController::class, 'add']);
 Route::get('/', [ProductsController::class, 'getProductsInRandomOrder']);
 
 Route::view('/AboutMe', 'partial.aboutme');
+Route::get('/image', function()
+{
+    $img = Image::make('foo.jpg')->resize(300, 200);
+
+    return $img->response('jpg');
+});
