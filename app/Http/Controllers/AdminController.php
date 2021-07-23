@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Models\Good;
+use Illuminate\Support\Facades\Response;
 use App\Models\Category;
 use Illuminate\Http\Request;
-
+use Image;
 class AdminController extends Controller
 {
     public function allproducts()
@@ -40,16 +41,19 @@ class AdminController extends Controller
         return view('showProducts.productDetails', ['productSelected'=>$productSelected]);
     }
     public function store(Request $request){
-        $image = $request->file('image')->store('img/product-img', 'public');
-
+        $image_file = $request->image;
+        $image = Image::make($image_file)->resize(250, 250);
+        Response::make($image->encode('jpeg'));
         $product=Good::create([
-            'category_id'=>$request->categoryId,
-            'title'=>$request->title,
-            'price'=>$request->price,
-            'qty'=> $request->qty,
-            'descrption'=>$request->descrption,
-            'image'=>$image
-        ]);
+                 'category_id'=>$request->categoryId,
+                 'title'=>$request->title,
+                 'price'=>$request->price,
+                 'qty'=> $request->qty,
+                 'descrption'=>$request->descrption,
+                 'image'=>$image
+             ]);
+        // $image = $request->file('image')->store('img/product-img', 'public');
+         
 
         return redirect('admin/allproducts');
     }
@@ -64,7 +68,9 @@ class AdminController extends Controller
     }
     public function update(Request $request){
         
-        $image= $request->file('imgUpdate')->store('img/product-img', 'public');
+        // $image= $request->file('imgUpdate')->store('img/product-img', 'public');
+        $image = Image::make($request->file('imgUpdate'))->resize(250, 250);
+        Response::make($image->encode('jpeg'));
         $product = Good::find($request->id);
         $product->update([
             'title' => $request->title,
@@ -80,6 +86,14 @@ class AdminController extends Controller
             'categoryName'=>$request->categoryName
         ]);
         return redirect('admin/allproducts');
+
+    }
+    public function decodeImage($id) {
+        $product=Good::find($id);
+        $decodeImage=Image::make($product->image);
+        $response=Response::make($decodeImage->encode('jpeg'));
+        $response->header('content-Type', 'image/jpeg');
+        return $response;
 
     }
 }

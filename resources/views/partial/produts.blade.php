@@ -6,7 +6,7 @@
         <!-- Single Catagory -->
         <div class="single-products-catagory clearfix">
             <a href="shop.html">
-                <img src="{{asset('storage/img/bg-img/2.jpg')}}" alt="">
+                <img src="{{url('admin/getimage/'.$product->id)}}" alt="">
                 <!-- Hover Content -->
                 <div class="hover-content">
                     <div class="line"></div>

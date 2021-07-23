@@ -55,6 +55,7 @@ class CartController extends Controller
         return redirect('getCartItems');
 
     }
+    // favorite Items Crud
     public function addToCartFavorite($id) {
         $product = Good::find($id);
         Cart::instance('favorite')->add($product->id, $product->title, 1, $product->price, ['image'=>$product->image]);
@@ -62,6 +63,28 @@ class CartController extends Controller
         session()->flash('itemAdded', true);
         return back()->with('cartItem',1);
         
+    }
+    
+    public function getFavItems() {
+        $allProducts=Cart::instance('favorite')->content();
+        $productsTotalNumber=count($allProducts);
+       if($productsTotalNumber){          
+            $subtotal= str_replace(',', '', Cart::subtotal());
+            $tax = str_replace(',', '', Cart::tax());
+            $total= str_replace(',', '',Cart::total());
+            session(['totalamount'=>$total,'productsTotalNumber'=>$productsTotalNumber]);
+            return view('favorite.favorite', ['items'=>$allProducts, 'total'=>$total, 'tax'=> $tax, 'subtotal'=>$subtotal, 'productsTotalNumber'=>$productsTotalNumber]);
+       }
+       toast('No items Inside Cart!','error');
+      session()->flash('NototalItmes', 'No items Inside Cart');
+      return view('favorite.favorite');
+    }
+    public function moveToCart( $rowId, $id) {
+        Cart::instance('favorite')->remove($rowId);
+        $product=Good::find($id);
+        Cart::instance('cart')->add($product->id, $product->title, 1, $product->price, ['image'=>$product->image]);
+        \toast('Item Added To Cart');
+        return redirect('/getFavItems'); 
     }
    
 }

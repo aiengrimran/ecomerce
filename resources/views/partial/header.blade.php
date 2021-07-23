@@ -25,6 +25,7 @@
             <li><a href="{{url('/AboutMe')}}">About Us</a></li>
             <li><a href="{{url('/getCartItems')}}">Cart Page {{Cart::instance('cart')->content()->count()}}</a></li>
             <li><a href="{{url('/checkoutForm')}}">Checkout</a></li>
+            <li><a href="{{url('/docs')}}">* Docs *</a></li>
         </ul>
     </nav>
     @auth
@@ -47,7 +48,7 @@
     <!-- Cart Menu -->
     <div class="cart-fav-search mb-100">
         <a href="{{url('/getCartItems')}}" class="cart-nav"><img src="{{asset('storage/img/core-img/cart.png')}}" alt=""> Cart <span>( {{Cart::instance('cart')->content()->count()}}) <span></a>
-        <a href="#" class="fav-nav"><img src="{{asset('storage/img/core-img/favorites.png')}}" alt=""> Favourite {{Cart::instance('favorite')->content()->count()}}</a>
+        <a href="{{url('/getFavItems')}}" class="fav-nav"><img src="{{asset('storage/img/core-img/favorites.png')}}" alt=""> Favourite {{Cart::instance('favorite')->content()->count()}}</a>
         <a href="#" class="search-nav"><img src="{{asset('storage/img/core-img/search.png')}}" alt=""> Search</a>
     </div>
     <!-- Social Button -->

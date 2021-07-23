@@ -111,10 +111,10 @@
                         <!-- Product Image -->
                         <div class="product-img ">
                            
-                            <img  src="{{asset('storage/img/product-img/HJlgvtexthlJdEIa8TPj8FbySNgChXvrKsIZxeXR.jpg')}}" alt="">
+                            <img  src="{{url('admin/getimage/'.$product->id)}}" alt="">
                             <!-- Hover Thumb -->
                             <a href="{{url('/addToCartFavorite/'.$product->id)}}"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                            <img class="hover-img" src="img/product-img/product1.jpg"  alt="">
+                            <img class="hover-img" src="{{asset('storage/img/product-img/product1.jpg')}}"  alt="">
                         </div>
                         <!-- Product Description -->
                         <div class="product-description d-flex align-items-center justify-content-between">

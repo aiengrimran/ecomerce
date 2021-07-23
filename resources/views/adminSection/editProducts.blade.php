@@ -73,15 +73,13 @@
                 </thead>
                 <tbody>
                     @foreach ($categories as $product)
-
-
                         <tr>
                             @foreach ($product->goods as $singleProduct)
                                 <td> {{ $loop->index + 1 }} </td>
                                 <td>{{ $singleProduct->title }}</td>
                                 <td>{{ $singleProduct->price }}</td>
                                 <td>{{ $singleProduct->qty }} </td>
-                                <td><img src="{{asset('storage/'.$singleProduct->image)}}" style="width: 50px;heigh:50px;" alt=""></td>
+                                <td><img src="{{url('admin/getimage/'.$singleProduct->id)}}" style="width: 50px;heigh:50px;" alt=""></td>
                                 {{-- <td><img src="{{ asset($singleProduct->image) }}" style="width: 50px;heigh:50px;"> --}}
                                 </td>
                                 <td>

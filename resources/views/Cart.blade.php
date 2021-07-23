@@ -40,7 +40,7 @@
                                         @foreach ($items ?? ('' ?? '') as $item)
                                             <tr>
                                                 <td class="cart_product_img">
-                                                    <a href="#"><img src="{{ $item->options->image }}" alt="Product"></a>
+                                                    <a href="#"><img src="{{url('/admin/getimage/'.$item->id)}} alt="Product"></a>
                                                 </td>
                                                 <td class="cart_product_desc">
                                                     <h5>{{ $item->name }}</h5>

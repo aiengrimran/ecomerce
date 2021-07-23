@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateGoodsTable extends Migration
 {
@@ -22,10 +23,11 @@ class CreateGoodsTable extends Migration
             $table->integer('price');
             $table->string('descrption');
             $table->integer('qty');
-            $table->string('image')->nullable();
-            $table->string('images')->nullable();
+            // $table->binary('image')->nullable();
+            $table->binary('images')->nullable();
             $table->timestamps();
         });
+        DB::statement("ALTER TABLE `goods` ADD `image` MEDIUMBLOB");
     }
 
     /**

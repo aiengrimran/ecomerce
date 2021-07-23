@@ -7,7 +7,7 @@ use App\Models\Good;
 
 use App\Mail\OrderPlaced;
 use App\Mail\OrderShipped;
-use Illuminate\Http\Client\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use Intervention\Image\Facades\Image;
@@ -29,6 +29,7 @@ use App\Http\Controllers\SubcriptionController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 require('user.php');
 require('admin.php');
 require('cart.php');
