@@ -91,7 +91,7 @@
                                     <li><span>total:</span> <span>$ {{ $total }}</span></li>
                                 </ul>
                                 <div class="cart-btn mt-100">
-                                    <a href="{{url('checkout')}}" class="btn amado-btn w-100">Checkout</a>
+                                    <a href="{{url('checkoutForm')}}" class="btn amado-btn w-100">Checkout</a>
                                 </div>
                             </div>
                         </div>

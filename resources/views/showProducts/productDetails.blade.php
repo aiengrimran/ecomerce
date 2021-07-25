@@ -37,38 +37,41 @@
                     <div class="col-12 col-lg-7">
                         <div class="single_product_thumb">
                             <div id="product_details_slider" class="carousel slide" data-ride="carousel">
+                                @foreach ($similarProducts as $item)  
                                 <ol class="carousel-indicators">
-                                    <li class="active" data-target="#product_details_slider" data-slide-to="0" style="background-image: url({{asset('storage/img/product-img/pro-big-1.jpg')}});">
+                                    <li class="active" data-target="#product_details_slider" data-slide-to="0" style="background-image: url({{asset('images/1.jpg')}});">
                                     </li>
-                                    <li data-target="#product_details_slider" data-slide-to="1" style="background-image: url({{asset('storage/img/product-img/pro-big-2.jpg')}});">
+                                    <li data-target="#product_details_slider" data-slide-to="1" style="background-image: url({{asset('images/crm-logo.jpg')}});">
                                     </li>
-                                    <li data-target="#product_details_slider" data-slide-to="2" style="background-image: url({{asset('storage/img/product-img/pro-big-3.jpg')}});">
+                                    <li data-target="#product_details_slider" data-slide-to="2" style="background-image:url({{asset('images/apple-icon-120.png')}});">
                                     </li>
-                                    <li data-target="#product_details_slider" data-slide-to="3" style="background-image: url({{asset('storage/img/product-img/pro-big-4.jpg')}});">
-                                    </li>
+                                    
                                 </ol>
+                                @endforeach   
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
                                         <a class="gallery_img" href="{{asset('storage/'.$product->image)}}">
-                                            <img class="d-block w-100" src="{{asset('storage/'.$product->image)}}" alt="First slide">
+                                            <img class="d-block w-100" src="{{asset('images')}}" alt="First slide">
                                         </a>
                                     </div>
                                     <div class="carousel-item">
                                         <a class="gallery_img" href="{{asset('storage/'.$product->image)}}">
-                                            <img class="d-block w-100" src="{{asset('storage/img/product-img/pro-big-2.jpg')}}" alt="Second slide">
+                                            <img class="d-block w-100" src="{{asset('/images/6.jpg')}}"   alt="Second slide">
                                         </a>
                                     </div>
                                     <div class="carousel-item">
                                         <a class="gallery_img" href="img/product-img/pro-big-3.jpg">
-                                            <img class="d-block w-100" src="{{asset('storage/img/product-img/pro-big-3.jpg')}}" alt="Third slide">
+                                            <img class="d-block w-100" src="{{asset('/images/5.jpg')}}" alt="Third slide">
                                         </a>
                                     </div>
-                                    {{-- <div class="carousel-item">
+                                    <div class="carousel-item">
                                         <a class="gallery_img" href="{{asset('storage/img/product-img/pro-big-4.jpg')}}">
-                                            <img class="d-block w-100" src="{{asset('storage/img/product-img/pro-big-4.jpg')}}" alt="Fourth slide">
+                                            <img class="d-block w-100" src="{{asset('/images/2.jpg')}}" alt="Fourth slide">
                                         </a>
-                                    </div> --}}
+                                    </div>
                                 </div>
+                                
+                                
                             </div>
                         </div>
                     </div>

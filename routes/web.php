@@ -83,7 +83,8 @@ Route::post('/subscibeNewsletter', [SubcriptionController::class, 'add']);
 
 Route::get('/', [ProductsController::class, 'getProductsInRandomOrder']);
 
-Route::view('/AboutMe', 'partial.aboutme');
+Route::view('/AboutMe', 'docs.aboutme');
+Route::view('/docs', 'docs.docs');
 Route::get('/image', function()
 {
     $img = Image::make('foo.jpg')->resize(300, 200);

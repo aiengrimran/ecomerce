@@ -5,7 +5,7 @@
        
         <!-- Single Catagory -->
         <div class="single-products-catagory clearfix">
-            <a href="shop.html">
+            <a href="{{url('/productDetails/'.$product->id)}}">
                 <img src="{{url('admin/getimage/'.$product->id)}}" alt="">
                 <!-- Hover Content -->
                 <div class="hover-content">

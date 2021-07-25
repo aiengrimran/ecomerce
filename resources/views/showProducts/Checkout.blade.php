@@ -16,6 +16,7 @@
        @include('partial.header')
         <div class="cart-table-area section-padding-100">
             <div class="container-fluid">
+                ijaz khan
                 <div  id="app">
                     <checkout subtotal="{{$subTotal}}" total={{ $cartTotal}}></checkout>
                 </div>

@@ -23,11 +23,11 @@ class CreateGoodsTable extends Migration
             $table->integer('price');
             $table->string('descrption');
             $table->integer('qty');
-            // $table->binary('image')->nullable();
+            $table->binary('image')->nullable();
             $table->binary('images')->nullable();
             $table->timestamps();
         });
-        DB::statement("ALTER TABLE `goods` ADD `image` MEDIUMBLOB");
+        // DB::statement("ALTER TABLE `goods` ADD `image` MEDIUMBLOB");
     }
 
     /**
