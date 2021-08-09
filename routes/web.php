@@ -58,6 +58,7 @@ Route::view('/gg', 'showProducts.productDetails');
 // Route::get('/google', function () {
 //     return Socialite::driver('facebook')->redirect();
 // });
+
 Route::get('/auth/facebook', [SocailController::class, 'redirect']);
 Route::get('/login/facebook', [SocailController::class, 'callback']);
 Route::view('/checkoutStripe', 'checkout');
@@ -80,7 +81,7 @@ Route::view('/delete', 'Shop');
 // });
 
 Route::post('/subscibeNewsletter', [SubcriptionController::class, 'add']);
-
+// Route::view('/', 'delete');
 Route::get('/', [ProductsController::class, 'getProductsInRandomOrder']);
 
 Route::view('/AboutMe', 'docs.aboutme');
@@ -91,3 +92,5 @@ Route::get('/image', function()
 
     return $img->response('jpg');
 });
+// Spa Routes
+Route::get('/getProductsSpa', [ProductsController::class, 'getProductsSpa']);

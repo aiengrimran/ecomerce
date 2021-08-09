@@ -14,8 +14,13 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function getProductsSpa(){
+        return $categories=Category::all();
+    }
     public function getProductsInRandomOrder(){
-        $products= Good::inRandomOrder()->limit(15)->get();
+        $products= Category::all();
+        // $products= Good::inRandomOrder()->limit(15)->get();
+        // return $products;
         return view('landing', ['products'=> $products]);
     }
     // shop view

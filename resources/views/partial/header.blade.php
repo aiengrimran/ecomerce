@@ -47,9 +47,9 @@
    
     <!-- Cart Menu -->
     <div class="cart-fav-search mb-100">
-        <a href="{{url('/getCartItems')}}" class="cart-nav"><img src="{{asset('storage/img/core-img/cart.png')}}" alt=""> Cart <span>( {{Cart::instance('cart')->content()->count()}}) <span></a>
-        <a href="{{url('/getFavItems')}}" class="fav-nav"><img src="{{asset('storage/img/core-img/favorites.png')}}" alt=""> Favourite {{Cart::instance('favorite')->content()->count()}}</a>
-        <a href="#" class="search-nav"><img src="{{asset('storage/img/core-img/search.png')}}" alt=""> Search</a>
+        <a href="{{url('/getCartItems')}}" class="cart-nav"><img src="{{asset('images/core-img/cart.png')}}" alt=""> Cart <span>( {{Cart::instance('cart')->content()->count()}}) <span></a>
+        <a href="{{url('/getFavItems')}}" class="fav-nav"><img src="{{asset('/images/core-img/favorites.png')}}" alt=""> Favourite {{Cart::instance('favorite')->content()->count()}}</a>
+        <a href="#" class="search-nav"><img src="{{asset('images/core-img/search.png')}}" alt=""> Search</a>
     </div>
     <!-- Social Button -->
     <div class="social-info d-flex justify-content-between">

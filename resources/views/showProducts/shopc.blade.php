@@ -114,7 +114,7 @@
                             <img  src="{{url('admin/getimage/'.$product->id)}}" alt="">
                             <!-- Hover Thumb -->
                             <a href="{{url('/addToCartFavorite/'.$product->id)}}"><i class="fa fa-heart" aria-hidden="true"></i></a>
-                            <img class="hover-img" src="{{asset('images/product-img/product1.jpg')}}"  alt="">
+                            <img class="hover-img" src="{{asset('storage/img/product-img/product1.jpg')}}"  alt="">
                         </div>
                         <!-- Product Description -->
                         <div class="product-description d-flex align-items-center justify-content-between">
@@ -136,7 +136,7 @@
                                     <i class="fa fa-star" aria-hidden="true"></i>
                                 </div>
                                 <div class="cart">
-                                    <a href="{{url('addToCart/'.$product->id)}}" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="{{asset('images/core-img/cart.png')}}" alt=""></a>
+                                    <a href="{{url('addToCart/'.$product->id)}}" data-toggle="tooltip" data-placement="left" title="Add to Cart"><img src="{{asset('storage/img/core-img/cart.png')}}" alt=""></a>
                                 </div>
                             </div>
                         </div>
